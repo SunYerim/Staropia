@@ -1,0 +1,49 @@
+<!--index.html 메인 화면-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Staropia main</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/698d84a497.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- 카카오 맵 api 스크립트 추가-->
+    <!-- 카카오 앱키는 각자 로컬에서 적어서 실행하시면 됩니다.-->
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey={your-kakao-app-key}"></script>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <!-- 현재 fontawesome 깨져보이는 현상때문에 임시로 solid-->
+        <i class="fa-solid fa-map"></i>
+        <a href="index.html">Staropia</a>
+      </div>
+
+      <ul class="navbar__menu">
+        <li><a href="ServiceInfo.html">서비스 소개</a></li>
+        <li><a href="StartupInfo.html">창업에 필요한 정보</a></li>
+        <!-- <li><a href="">산재 지정병원 목록</a></li> -->
+      </ul>
+    </nav>
+
+    <div id="map" style="width: 100%; height: 400px"></div>
+    <script>
+      var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(35.13417, 129.11397), // 지도의 중심좌표
+          level: 6, // 지도의 확대 레벨
+          mapTypeId: kakao.maps.MapTypeId.ROADMAP, // 지도종류
+        };
+      // 지도를 생성한다
+      var map = new kakao.maps.Map(mapContainer, mapOption);
+      // 지도에 마커를 생성하고 표시한다
+      var marker = new kakao.maps.Marker({
+        position: new kakao.maps.LatLng(35.13499, 129.1039), // 마커의 좌표
+        map: map, // 마커를 표시할 지도 객체
+      });
+    </script>
+    <footer>copyright staropia</footer>
+  </body>
+</html>
