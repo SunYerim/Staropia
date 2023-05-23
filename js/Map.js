@@ -25,6 +25,17 @@ function addMarker(position) {
 
     markers.push(marker);
     
+    addInfoWindow(marker, position);
+}
+
+// 마커에 인포윈도우를 추가하는 함수
+function addInfoWindow(marker, position) {
+    // 마커 위에 표시할 인포윈도우를 생성한다
+    var infowindow = new kakao.maps.InfoWindow({
+        // 현재는 위도, 경도를 표시하게 설정
+        content : '<div style="padding:5px;">위도 : ' + position.getLat() + '<br>경도 : ' + position.getLng() + '</div>' // 인포윈도우에 표시할 내용
+    });
+
     // 마커에 mouseover 이벤트를 등록한다
     kakao.maps.event.addListener(marker, 'mouseover', function() {
         // 인포윈도우를 지도에 표시한다
@@ -40,12 +51,8 @@ function addMarker(position) {
 
     // 마커에 클릭 이벤트를 등록한다 (우클릭 : rightclick)
     kakao.maps.event.addListener(marker, 'click', function() {
+        // 이후 상세 페이지로 이동하게 작업 예정
         alert('마커를 클릭했습니다!');
-    });
-
-    // 마커 위에 표시할 인포윈도우를 생성한다
-    var infowindow = new kakao.maps.InfoWindow({
-        content : '<div style="padding:5px;">위도 : ' + position.getLat() + '<br>경도 : ' + position.getLng() + '</div>' // 인포윈도우에 표시할 내용
     });
 }
 
