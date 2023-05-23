@@ -8,26 +8,60 @@ mapOption = {
 // 지도를 생성한다
 var map = new kakao.maps.Map(mapContainer, mapOption);
 
+// 마커를 담아둘 배열
+var markers = [];
+
 // 지도에 마커를 생성하고 표시한다
-var marker = new kakao.maps.Marker({
-position: new kakao.maps.LatLng(35.13499, 129.1039), // 마커의 좌표
-map: map, // 마커를 표시할 지도 객체
-});
+addMarker(new kakao.maps.LatLng(35.13499, 129.1039));
+addMarker(new kakao.maps.LatLng(35.13499, 129.1059));
 
-// 마커 위에 표시할 인포윈도우를 생성한다
-var infowindow = new kakao.maps.InfoWindow({
-    content : '<div style="padding:5px;">인포윈도우 :D</div>' // 인포윈도우에 표시할 내용
-});
+// 마커를 생성하는 함수
+function addMarker(position) {
+    var marker = new kakao.maps.Marker({
+        position: position,
+    });
 
-// 마커에 mouseover 이벤트를 등록한다
-kakao.maps.event.addListener(marker, 'mouseover', function() {
-    // 인포윈도우를 지도에 표시한다
-    infowindow.open(map, marker);
-    // console.log('마커에 mouseover 이벤트가 발생했습니다!');
-});
+    marker.setMap(map);
 
-// 마커에 mouseout 이벤트 등록
-kakao.maps.event.addListener(marker, 'mouseout', function() {
-    infowindow.close();
-    // console.log('마커에 mouseout 이벤트가 발생했습니다!');
-});
+    markers.push(marker);
+    
+    // 마커에 mouseover 이벤트를 등록한다
+    kakao.maps.event.addListener(marker, 'mouseover', function() {
+        // 인포윈도우를 지도에 표시한다
+        infowindow.open(map, marker);
+        // console.log('마커에 mouseover 이벤트가 발생했습니다!');
+    });
+
+    // 마커에 mouseout 이벤트 등록
+    kakao.maps.event.addListener(marker, 'mouseout', function() {
+        infowindow.close();
+        // console.log('마커에 mouseout 이벤트가 발생했습니다!');
+    });
+
+    // 마커에 클릭 이벤트를 등록한다 (우클릭 : rightclick)
+    kakao.maps.event.addListener(marker, 'click', function() {
+        alert('마커를 클릭했습니다!');
+    });
+
+    // 마커 위에 표시할 인포윈도우를 생성한다
+    var infowindow = new kakao.maps.InfoWindow({
+        content : '<div style="padding:5px;">위도 : ' + position.getLat() + '<br>경도 : ' + position.getLng() + '</div>' // 인포윈도우에 표시할 내용
+    });
+}
+
+// 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수
+function setMarkers(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }            
+}
+
+// 배열에 추가된 마커를 지도에 표시하는 함수
+function showMarkers() {
+    setMarkers(map)    
+}
+
+// 배열에 추가된 마커를 지도에서 삭제하는 함수
+function hideMarkers() {
+    setMarkers(null);    
+}
