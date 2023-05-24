@@ -28,6 +28,23 @@ function addMarker(position) {
     addInfoWindow(marker, position);
 }
 
+// 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수
+function setMarkers(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }            
+}
+
+// 배열에 추가된 마커를 지도에 표시하는 함수
+function showMarkers() {
+    setMarkers(map)    
+}
+
+// 배열에 추가된 마커를 지도에서 삭제하는 함수
+function hideMarkers() {
+    setMarkers(null);    
+}
+
 // 마커에 인포윈도우를 추가하는 함수
 function addInfoWindow(marker, position) {
     // 마커 위에 표시할 인포윈도우를 생성한다
@@ -54,21 +71,4 @@ function addInfoWindow(marker, position) {
         // 이후 상세 페이지로 이동하게 작업 예정
         alert('마커를 클릭했습니다!');
     });
-}
-
-// 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수
-function setMarkers(map) {
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
-    }            
-}
-
-// 배열에 추가된 마커를 지도에 표시하는 함수
-function showMarkers() {
-    setMarkers(map)    
-}
-
-// 배열에 추가된 마커를 지도에서 삭제하는 함수
-function hideMarkers() {
-    setMarkers(null);    
 }
