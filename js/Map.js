@@ -8,6 +8,17 @@ mapOption = {
 // 지도를 생성한다
 var map = new kakao.maps.Map(mapContainer, mapOption);
 
+// 장소 검색 객체 생성
+var ps = new kakao.maps.services.Places();
+
+searchPlaces();
+
+// 키워드 검색을 요청
+function searchPlaces(){
+    var keyword = document.getElementById('keyword').value;
+    ps.keywordSearch(keyword, placesSearchCB);
+}
+
 // 마커를 담아둘 배열
 var markers = [];
 
