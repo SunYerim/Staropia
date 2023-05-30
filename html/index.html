@@ -13,7 +13,7 @@
   <body>
     <!-- 카카오 맵 api 스크립트 추가-->
     <!-- 카카오 앱키는 각자 로컬에서 적어서 실행하시면 됩니다.-->
-    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b4075c46c290ad03844431c80a28c5f6"></script>
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b4075c46c290ad03844431c80a28c5f6&libraries=services"></script>
     <nav class="navbar">
       <div class="navbar__logo">
         <!-- 현재 fontawesome 깨져보이는 현상때문에 임시로 solid-->
@@ -34,10 +34,11 @@
         <input
           type="search"
           value=""
+          id="keyword"
           placeholder="Search"
           class="search-input"
         />
-        <button type="submit" class="search-button">
+        <button type="submit" class="search-button" onclick="keywordSearch()">
           <img src="../images/search.png" />
         </button>
       </form>

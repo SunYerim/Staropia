@@ -8,19 +8,48 @@ mapOption = {
 // 지도를 생성한다
 var map = new kakao.maps.Map(mapContainer, mapOption);
 
-// 장소 검색 객체 생성
-var ps = new kakao.maps.services.Places();
+function keywordSearch(){
 
-searchPlaces();
+    var keyword = $('#keyword').val();
+    var markers = [];
 
-// 키워드 검색을 요청
-function searchPlaces(){
-    var keyword = document.getElementById('keyword').value;
-    ps.keywordSearch(keyword, placesSearchCB);
+    // 장소 검색 객체 생성
+    var ps = new kakao.maps.services.Places();
+
+    searchPlaces();
+
+    // 키워드 검색을 요청
+    function searchPlaces(){
+        var keyword = document.getElementById('keyword').value;
+        ps.keywordSearch(keyword, placesSearchCB);
+    }
+
+    // 키워드 검색 완료 시 호출되는 함수
+    function placesSearchCB(data, status, pagination) {
+        if(status === kakao.maps.services.Status.OK){
+            displayPlaces(data);
+        }
+        else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+            alert('No Result');
+            return;
+        }
+    }
+
+    function displayPlaces(places) {
+        hideMarkers();
+        for (var i=0; i<places.length; i++) {
+            var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+                marker = addMarker(placePosition, i);
+
+            bounds.extend(placePosition);
+        }
+        map.setBounds(bounds);
+    }
+
 }
 
 // 마커를 담아둘 배열
-var markers = [];
+// var markers = [];
 
 // 위도, 경도
 var lat = 0, lng = 0;
