@@ -13,6 +13,7 @@ body {
 a {
   text-decoration: none;
   color: white;
+  font-weight: 600;
 }
 
 footer {
@@ -74,6 +75,7 @@ footer {
   padding: 0 20px;
   font-size: 1rem;
   border: 1px solid #d0cfce;
+  border-radius: 10px;
   outline: none;
   flex: 1;
 }
@@ -83,12 +85,14 @@ footer {
   height: 45px;
   margin-left: 10px;
   position: relative;
+  border: 1px solid gray;
+  border-radius: 10px;
   z-index: 0;
 }
 
 .search-button img {
-  width: 20px; /* 이미지의 너비 설정 */
-  height: 20px; /* 이미지의 높이 설정 */
+  width: 30px; /* 이미지의 너비 설정 */
+  height: 30px; /* 이미지의 높이 설정 */
 }
 
 .search-container {
@@ -101,13 +105,23 @@ footer {
 
 #previewWindow {
   background-color: white;
-  box-shadow: 0px 0px 5px #323232;
-  width: 360px;
-  height: 120px;
-  padding: 5px;
+  border: solid #375548;
+  border-radius: 20px;
+  width: 200px;
+  height: 100px;
+  padding: 20px;
   z-index: 1;
 }
 
 #previewWindow > a {
-  color: #1894e1;
+  color: #7fc8a9;
+  text-decoration: none;
 }
+#previewWindow > a:hover {
+  color: #243830;
+  text-decoration: underline;
+}
+#previewWindow > a:active {
+  color: #000000;
+}
+
