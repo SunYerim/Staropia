@@ -9,7 +9,6 @@ var mapContainer = document.getElementById("map"), // 지도를 표시할 div
 var map = new kakao.maps.Map(mapContainer, mapOption);
 var markers = [];
 function keywordSearch() {
-  console.log("호출되었습니다");
   var keyword = $("#keyword").val();
 
   // 장소 검색 객체 생성
@@ -57,8 +56,9 @@ var previewWindow = new kakao.maps.CustomOverlay({
   // 현재는 위도, 경도를 표시하게 설정, 변경 가능함을 보인다
   content:
     '<div id="previewWindow">' +
+    "위도: " +
     lat +
-    "<br>" +
+    "<br>경도: " +
     lng +
     "<br><br>" +
     '<a href="CompanyInfo.html">' +
@@ -125,12 +125,13 @@ function showPreviewWindow(position) {
     // 변경될 내용
     var content =
       '<div id="previewWindow">' +
+      "위도: " +
       lat +
-      "<br>" +
+      "<br>경도: " +
       lng +
-      "<br>" +
+      "<br><br>" +
       '<a href="CompanyInfo.html">' +
-      "상세정보" +
+      "상세보기" +
       "</a>" +
       "</div>";
 
@@ -142,3 +143,25 @@ function showPreviewWindow(position) {
     previewWindow.setMap(map);
   };
 }
+
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+geocoder.addressSearch('경기 고양시 일산동구 고봉로 26-32 (장항동, 양우로데오랜드) C동202호', function(result, status) {
+    console.log(status);
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        addMarker(coords);
+
+        // 인포윈도우로 장소에 대한 설명을 표시합니다
+        showPreviewWindow(coords);
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+});    
