@@ -1,0 +1,13 @@
+// pip install xmltodict
+
+
+import json
+import xmltodict
+
+with open("C:\\Users\SAMSUNG\PycharmProjects\webprg\\venv\\parsing.xml", "r", encoding = 'UTF-8') as f:
+    xmlString = f.read()
+
+jsonString = json.dumps(xmltodict.parse(xmlString), indent = 4, ensure_ascii=False)
+
+with open("parsing.json", "w") as f:
+    f.write(jsonString)

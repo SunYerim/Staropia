@@ -126,13 +126,12 @@ function showPreviewWindow(position) {
     // 변경될 내용
     var content =
       '<div id="previewWindow">' +
-      "위도: " +
       lat +
-      "<br>경도: " +
+      "<br>" +
       lng +
-      "<br><br>" +
+      "<br>" +
       '<a href="CompanyInfo.html">' +
-      "상세보기" +
+      "상세정보" +
       "</a>" +
       "</div>";
 
