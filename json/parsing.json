@@ -1,0 +1,1011 @@
+{
+    "response": {
+        "header": {
+            "resultCode": "00",
+            "resultMsg": "NORMAL SERVICE."
+        },
+        "body": {
+            "items": {
+                "item": [
+                    {
+                        "addr": "경기 고양시 일산동구 고봉로 26-32 (장항동, 양우로데오랜드) C동202호",
+                        "gyEopjongCd": "56219",
+                        "gyEopjongNm": "기타 주점업",
+                        "opaBoheomFg": "2",
+                        "post": "10364",
+                        "saeopjaDrno": "8442600448",
+                        "saeopjangNm": "늘올주점",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20171201"
+                    },
+                    {
+                        "addr": "광주 광산구 상무대로 541 (우산동)",
+                        "opaBoheomFg": "1",
+                        "post": "62362",
+                        "saeopjaDrno": "4508700429",
+                        "saeopjangNm": "주식회사디에스팜",
+                        "sangsiInwonCnt": "27",
+                        "seongripDt": "20161101"
+                    },
+                    {
+                        "addr": "경기도 화성시 동탄반석로 160 (반송동) B동 5층 505호",
+                        "opaBoheomFg": "1",
+                        "post": "18454",
+                        "saeopjaDrno": "1258602150",
+                        "saeopjangNm": "주식회사뱅크애드",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20120701"
+                    },
+                    {
+                        "addr": "경기 시흥시 비둘기공원7길 27 (대야동, 서해아파트) 관리동 1층",
+                        "opaBoheomFg": "1",
+                        "post": "14913",
+                        "saeopjaDrno": "1658000459",
+                        "saeopjangNm": "늘푸른어린이집",
+                        "sangsiInwonCnt": "10",
+                        "seongripDt": "20160726"
+                    },
+                    {
+                        "addr": "경기 용인시 처인구 한터로 78 1층 (고림동)",
+                        "opaBoheomFg": "1",
+                        "post": "17148",
+                        "saeopjaDrno": "6336800213",
+                        "saeopjangNm": "이화수전통육개장용인고림점",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20170801"
+                    },
+                    {
+                        "addr": "부산 동래구 중앙대로1277번길 12 (사직동)",
+                        "gyEopjongCd": "87210",
+                        "gyEopjongNm": "보육시설 운영업",
+                        "opaBoheomFg": "2",
+                        "post": "47832",
+                        "saeopjaDrno": "6078003270",
+                        "saeopjangNm": "아이성어린이집",
+                        "sangsiInwonCnt": "8",
+                        "seongripDt": "20020501"
+                    },
+                    {
+                        "addr": "경기 의왕시 내손로 57 (내손동, 의왕내손e편한세상아파트) 1404동1804호",
+                        "opaBoheomFg": "1",
+                        "post": "16025",
+                        "saeopjaDrno": "6993200494",
+                        "saeopjangNm": "J케이아트",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20201023"
+                    },
+                    {
+                        "addr": "강원도 정선군 정선읍 용담길92",
+                        "opaBoheomFg": "1",
+                        "post": "26135",
+                        "saeopjaDrno": "2250293359",
+                        "saeopjangNm": "정선방역",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20130308"
+                    },
+                    {
+                        "addr": "대구광역시 남구 중앙대로48길36 (대명동)",
+                        "opaBoheomFg": "1",
+                        "post": "42424",
+                        "saeopjaDrno": "5042395634",
+                        "saeopjangNm": "영선사",
+                        "sangsiInwonCnt": "3",
+                        "seongripDt": "20130306"
+                    },
+                    {
+                        "addr": "경남 거제시 연초면 오비4길 54",
+                        "gyEopjongCd": "25922",
+                        "gyEopjongNm": "도금업",
+                        "opaBoheomFg": "2",
+                        "post": "53207",
+                        "saeopjaDrno": "6141469275",
+                        "saeopjangNm": "다원기업",
+                        "sangsiInwonCnt": "7",
+                        "seongripDt": "20160701"
+                    },
+                    {
+                        "addr": "전북 고창군 고창읍 중거리당산로 119 (GIP노인복지센터)",
+                        "gyEopjongCd": "87139",
+                        "gyEopjongNm": "그 외 기타 거주 복지시설 운영업",
+                        "opaBoheomFg": "2",
+                        "post": "56438",
+                        "saeopjaDrno": "4048030450",
+                        "saeopjangNm": "GIP노인복지센터",
+                        "sangsiInwonCnt": "22",
+                        "seongripDt": "20091101"
+                    },
+                    {
+                        "addr": "부산 부산진구 중앙대로 지하 717 (부전동, 대현프리몰 1열 73-2호)",
+                        "opaBoheomFg": "1",
+                        "post": "47286",
+                        "saeopjaDrno": "6171883314",
+                        "saeopjangNm": "달라",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20140327"
+                    },
+                    {
+                        "addr": "경기 화성시 봉담읍 덕우공단1길 65-9",
+                        "opaBoheomFg": "1",
+                        "post": "18336",
+                        "saeopjaDrno": "1243726210",
+                        "saeopjangNm": "피아로딕스",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20050310"
+                    },
+                    {
+                        "addr": "경남 창원시 마산회원구 내서읍 중리공단로1길 30-2 (이두정공성일ENG)",
+                        "opaBoheomFg": "1",
+                        "post": "51233",
+                        "saeopjaDrno": "6080180426",
+                        "saeopjangNm": "이두정공",
+                        "sangsiInwonCnt": "6",
+                        "seongripDt": "19990501"
+                    },
+                    {
+                        "addr": "대전 동구 홍도로33번길 84 (홍도동)",
+                        "gyEopjongCd": "56192",
+                        "gyEopjongNm": "피자, 햄버거, 샌드위치 및 유사 음식점업",
+                        "opaBoheomFg": "2",
+                        "post": "34554",
+                        "saeopjaDrno": "1795600303",
+                        "saeopjangNm": "킹스타피자한남대점",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20190707"
+                    },
+                    {
+                        "addr": "충북 옥천군 옥천읍 문장로 132 (옥천읍)",
+                        "gyEopjongCd": "95211",
+                        "gyEopjongNm": "자동차 종합 수리업",
+                        "opaBoheomFg": "2",
+                        "post": "29049",
+                        "saeopjaDrno": "4928700739",
+                        "saeopjangNm": "주식회사진성자동차공업사",
+                        "sangsiInwonCnt": "13",
+                        "seongripDt": "20170901"
+                    },
+                    {
+                        "addr": "경북 영주시 구성로188번길 27-1 (휴천동, 휴천주공아파트)",
+                        "opaBoheomFg": "1",
+                        "post": "36154",
+                        "saeopjaDrno": "5128000086",
+                        "saeopjangNm": "휴천주공관리사무소",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20000701"
+                    },
+                    {
+                        "addr": "인천광역시 연수구 송도미래로 30 (송도동, 스마트밸리 지식산업센타) A동 713호",
+                        "gyEopjongCd": "70111",
+                        "gyEopjongNm": "물리, 화학 및 생물학 연구개발업",
+                        "opaBoheomFg": "2",
+                        "post": "21990",
+                        "saeopjaDrno": "1318625124",
+                        "saeopjangNm": "(주)피토메카",
+                        "sangsiInwonCnt": "5",
+                        "seongripDt": "20111004"
+                    },
+                    {
+                        "addr": "경기도 안산시 상록구 충장로 312 (이동)",
+                        "gyEopjongCd": "46312",
+                        "gyEopjongNm": "채소류, 서류 및 향신작물류 도매업",
+                        "opaBoheomFg": "2",
+                        "post": "15507",
+                        "saeopjaDrno": "1349830084",
+                        "saeopjangNm": "충남종합청과",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20120101"
+                    },
+                    {
+                        "addr": "서울 강남구 삼성로75길 26 (대치동)",
+                        "gyEopjongCd": "56194",
+                        "gyEopjongNm": "김밥 및 기타 간이 음식점업",
+                        "opaBoheomFg": "2",
+                        "post": "06196",
+                        "saeopjaDrno": "8286300039",
+                        "saeopjangNm": "구십구구(999)",
+                        "sangsiInwonCnt": "3",
+                        "seongripDt": "20160910"
+                    },
+                    {
+                        "addr": "서울 구로구 경인로40길 47 (개봉동, 개봉역구내) 3층",
+                        "gyEopjongCd": "56191",
+                        "gyEopjongNm": "제과점업",
+                        "opaBoheomFg": "2",
+                        "post": "08276",
+                        "saeopjaDrno": "4162192393",
+                        "saeopjangNm": "크리스피크림도넛개봉역",
+                        "sangsiInwonCnt": "10",
+                        "seongripDt": "20191101"
+                    },
+                    {
+                        "addr": "경기도 안산시 단원구 원포공원1로 46 3층 (초지동, 이마트고잔점)",
+                        "gyEopjongCd": "56229",
+                        "gyEopjongNm": "기타 비알코올 음료점업",
+                        "opaBoheomFg": "2",
+                        "post": "15455",
+                        "saeopjaDrno": "1342642021",
+                        "saeopjangNm": "이디야이마트고잔점",
+                        "sangsiInwonCnt": "5",
+                        "seongripDt": "20121001"
+                    },
+                    {
+                        "addr": "강원 속초시 중앙시장로6길 18 (중앙동) 101호",
+                        "gyEopjongCd": "56111",
+                        "gyEopjongNm": "한식 일반 음식점업",
+                        "opaBoheomFg": "2",
+                        "post": "24832",
+                        "saeopjaDrno": "5571800078",
+                        "saeopjangNm": "속초아저씨튀김맛집",
+                        "sangsiInwonCnt": "3",
+                        "seongripDt": "20160401"
+                    },
+                    {
+                        "addr": "서울 금천구 가산디지털1로 186 (가산동, 제이플라츠 106,106-1호)",
+                        "gyEopjongCd": "56221",
+                        "gyEopjongNm": "커피 전문점",
+                        "opaBoheomFg": "2",
+                        "post": "08502",
+                        "saeopjaDrno": "8213100677",
+                        "saeopjangNm": "투썸플레이스가산디지털점",
+                        "sangsiInwonCnt": "13",
+                        "seongripDt": "20190702"
+                    },
+                    {
+                        "addr": "경남 함안군 칠원읍 오곡리 1423번지 50호",
+                        "gyEopjongCd": "18111",
+                        "gyEopjongNm": "경 인쇄업",
+                        "opaBoheomFg": "2",
+                        "post": "52021",
+                        "saeopjaDrno": "6083699572",
+                        "saeopjangNm": "유일산업",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20150819"
+                    },
+                    {
+                        "addr": "인천 서구 신진말로 32-1 (가좌동, 동진유치원)",
+                        "gyEopjongCd": "85110",
+                        "gyEopjongNm": "유아 교육기관",
+                        "opaBoheomFg": "2",
+                        "post": "22817",
+                        "saeopjaDrno": "2898000565",
+                        "saeopjangNm": "동진유치원(직장)",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20170110"
+                    },
+                    {
+                        "addr": "인천광역시 남동구 경인로 764 (간석동) 이화빌딩 401호",
+                        "gyEopjongCd": "75999",
+                        "gyEopjongNm": "그 외 기타 분류 안된 사업지원 서비스업",
+                        "opaBoheomFg": "2",
+                        "post": "21513",
+                        "saeopjaDrno": "1228210425",
+                        "saeopjangNm": "사단법인인천사람과문화",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20110801"
+                    },
+                    {
+                        "addr": "광주 남구 용대로 71 (봉선동)",
+                        "gyEopjongCd": "56111",
+                        "gyEopjongNm": "한식 일반 음식점업",
+                        "opaBoheomFg": "2",
+                        "post": "61686",
+                        "saeopjaDrno": "5430700428",
+                        "saeopjangNm": "용강추어탕(봉선점)",
+                        "sangsiInwonCnt": "3",
+                        "seongripDt": "20170201"
+                    },
+                    {
+                        "addr": "경기 안성시 인지3길 1 1층 (인지동)",
+                        "gyEopjongCd": "32021",
+                        "gyEopjongNm": "주방용 및 음식점용 목재가구 제조업",
+                        "opaBoheomFg": "2",
+                        "post": "17583",
+                        "saeopjaDrno": "4464300727",
+                        "saeopjangNm": "해든주방가구",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20220510"
+                    },
+                    {
+                        "addr": "서울 종로구 북촌로12길 12-3 (가회동)",
+                        "gyEopjongCd": "85699",
+                        "gyEopjongNm": "그 외 기타 분류 안된 교육기관",
+                        "opaBoheomFg": "2",
+                        "post": "03056",
+                        "saeopjaDrno": "1018900822",
+                        "saeopjangNm": "노틀담방과후교실",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20030101"
+                    },
+                    {
+                        "addr": "경기 고양시 일산동구 감내길 105-42 (성석동) 1층",
+                        "opaBoheomFg": "1",
+                        "post": "10246",
+                        "saeopjaDrno": "6957100278",
+                        "saeopjangNm": "청우주택개발",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20190701"
+                    },
+                    {
+                        "addr": "서울 종로구 지봉로 29 15층 1504호 (창신동, 금호팔레스)",
+                        "gyEopjongCd": "46742",
+                        "gyEopjongNm": "직물 도매업",
+                        "opaBoheomFg": "2",
+                        "post": "03121",
+                        "saeopjaDrno": "2200575997",
+                        "saeopjangNm": "티엠에스(T.M.S）",
+                        "sangsiInwonCnt": "3",
+                        "seongripDt": "20150601"
+                    },
+                    {
+                        "addr": "부산 연제구 과정로 270-1 (연산동)",
+                        "gyEopjongCd": "47811",
+                        "gyEopjongNm": "의약품 및 의료용품 소매업",
+                        "opaBoheomFg": "2",
+                        "post": "47564",
+                        "saeopjaDrno": "6051491055",
+                        "saeopjangNm": "한양약국",
+                        "sangsiInwonCnt": "4",
+                        "seongripDt": "20140301"
+                    },
+                    {
+                        "addr": "경남 함양군 함양읍 한들로 119",
+                        "gyEopjongCd": "42129",
+                        "gyEopjongNm": "기타 기반조성 관련 전문공사업",
+                        "opaBoheomFg": "2",
+                        "post": "50046",
+                        "saeopjaDrno": "6118118615",
+                        "saeopjangNm": "한들산업(주)",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20111117"
+                    },
+                    {
+                        "addr": "경기 수원시 권선구 정조로 201 (대황교동)",
+                        "opaBoheomFg": "1",
+                        "post": "16661",
+                        "saeopjaDrno": "1338141130",
+                        "saeopjangNm": "(주)현대산기",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "19970103"
+                    },
+                    {
+                        "addr": "경기 하남시 신장로154번길 68 (덕풍동) 1층",
+                        "opaBoheomFg": "1",
+                        "post": "12967",
+                        "saeopjaDrno": "1552300764",
+                        "saeopjangNm": "피자캣",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20180801"
+                    },
+                    {
+                        "addr": "경기 시흥시 시흥대로 1001-11",
+                        "opaBoheomFg": "1",
+                        "post": "14956",
+                        "saeopjaDrno": "1390257727",
+                        "saeopjangNm": "삼성목공기계산업",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20190601"
+                    },
+                    {
+                        "addr": "인천 중구 축항대로 299 (신흥동3가)",
+                        "opaBoheomFg": "1",
+                        "post": "22334",
+                        "saeopjaDrno": "1218158512",
+                        "saeopjangNm": "(주)태평석유",
+                        "sangsiInwonCnt": "0",
+                        "seongripDt": "20160701"
+                    },
+                    {
+                        "addr": "서울 성북구 창경궁로 328 2층 (삼선동1가)",
+                        "gyEopjongCd": "86202",
+                        "gyEopjongNm": "치과 의원",
+                        "opaBoheomFg": "2",
+                        "post": "02866",
+                        "saeopjaDrno": "2091659147",
+                        "saeopjangNm": "뉴욕엔와이유(NYU)치과의원",
+                        "sangsiInwonCnt": "8",
+                        "seongripDt": "20070501"
+                    },
+                    {
+                        "addr": "강원 원주시 남원로469번길 13-13 (명륜동)",
+                        "opaBoheomFg": "1",
+                        "post": "26482",
+                        "saeopjaDrno": "2249035877",
+                        "saeopjangNm": "정직한학원",
+                        "sangsiInwonCnt": "7",
+                        "seongripDt": "20150101"
+                    },
+                    {
+                        "addr": "경기 양주시 고암길 306-77 303호 (덕정동, 황금프라자)",
+                        "gyEopjongCd": "86201",
+                        "gyEopjongNm": "일반 의원",
+                        "opaBoheomFg": "2",
+                        "post": "11456",
+                        "saeopjaDrno": "1279072741",
+                        "saeopjangNm": "이병철내과",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20010425"
+                    },
+                    {
+                        "addr": "인천광역시 연수구 송도동 (송도동) 214 스마트밸리 B동 6층 615호",
+                        "gyEopjongCd": "29199",
+                        "gyEopjongNm": "그 외 기타 일반목적용 기계 제조업",
+                        "opaBoheomFg": "2",
+                        "post": "21990",
+                        "saeopjaDrno": "1318650851",
+                        "saeopjangNm": "(주)비텍스",
+                        "sangsiInwonCnt": "13",
+                        "seongripDt": "20130801"
+                    },
+                    {
+                        "addr": "경북 경주시 안강읍 안현로 955-6 (안강읍)",
+                        "gyEopjongCd": "30310",
+                        "gyEopjongNm": "자동차 엔진용 신품 부품 제조업",
+                        "opaBoheomFg": "2",
+                        "post": "38031",
+                        "saeopjaDrno": "7948100477",
+                        "saeopjangNm": "주식회사일진테크",
+                        "sangsiInwonCnt": "3",
+                        "seongripDt": "20160901"
+                    },
+                    {
+                        "addr": "경기 부천시 은성로 172-9 상가동 201호 (범박동, 부천범박힐스테이트 6단지)",
+                        "opaBoheomFg": "1",
+                        "post": "14773",
+                        "saeopjaDrno": "1308156861",
+                        "saeopjangNm": "(주)유원서비스",
+                        "sangsiInwonCnt": "6",
+                        "seongripDt": "19990701"
+                    },
+                    {
+                        "addr": "경기 성남시 수정구 심곡로 1 (심곡동)",
+                        "gyEopjongCd": "56111",
+                        "gyEopjongNm": "한식 일반 음식점업",
+                        "opaBoheomFg": "2",
+                        "post": "13103",
+                        "saeopjaDrno": "1292179104",
+                        "saeopjangNm": "남추어탕",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20120101"
+                    },
+                    {
+                        "addr": "경기 수원시 권선구 장다리로 134 현대빌딩 2층 (권선동)",
+                        "opaBoheomFg": "1",
+                        "post": "16570",
+                        "saeopjaDrno": "1248641015",
+                        "saeopjangNm": "(주)성우전력",
+                        "sangsiInwonCnt": "6",
+                        "seongripDt": "20060315"
+                    },
+                    {
+                        "addr": "부산 부산진구 신천대로263번길 44 (부암동)",
+                        "gyEopjongCd": "94990",
+                        "gyEopjongNm": "그 외 기타 협회 및 단체",
+                        "opaBoheomFg": "2",
+                        "post": "47185",
+                        "saeopjaDrno": "6058203943",
+                        "saeopjangNm": "부산시학교안전공제회",
+                        "sangsiInwonCnt": "5",
+                        "seongripDt": "20040101"
+                    },
+                    {
+                        "addr": "경기도 안양시동안구 평촌대로239 (비산동, 신안메트로칸) 515호",
+                        "opaBoheomFg": "1",
+                        "post": "14047",
+                        "saeopjaDrno": "1388171643",
+                        "saeopjangNm": "(주)밸류이노베이션",
+                        "sangsiInwonCnt": "6",
+                        "seongripDt": "20130201"
+                    },
+                    {
+                        "addr": "전라남도 여수시 묘도동(묘도동) 산 150-7",
+                        "opaBoheomFg": "1",
+                        "post": "59617",
+                        "saeopjaDrno": "4178141120",
+                        "saeopjangNm": "주식회사청안",
+                        "sangsiInwonCnt": "11",
+                        "seongripDt": "20110101"
+                    },
+                    {
+                        "addr": "경남 함안군 가야읍 관동길 1-26 ((주)대동)",
+                        "opaBoheomFg": "1",
+                        "post": "52043",
+                        "saeopjaDrno": "6088129945",
+                        "saeopjangNm": "(주)대종",
+                        "sangsiInwonCnt": "9",
+                        "seongripDt": "19980901"
+                    },
+                    {
+                        "addr": "서울 강남구 도산대로54길 30 1층 (논현동, CI사옥)",
+                        "opaBoheomFg": "1",
+                        "post": "06056",
+                        "saeopjaDrno": "2110936737",
+                        "saeopjangNm": "빈트윈",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20130516"
+                    },
+                    {
+                        "addr": "충청북도 보은군 산외면 내북산외로 818-2 (산외면)",
+                        "gyEopjongCd": "47723",
+                        "gyEopjongNm": "가정용 가스연료 소매업",
+                        "opaBoheomFg": "2",
+                        "post": "28901",
+                        "saeopjaDrno": "3020479264",
+                        "saeopjangNm": "천사가스에너지",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20130307"
+                    },
+                    {
+                        "addr": "서울 동대문구 무학로44길 51 4층 (제기동, 현웅빌딩)",
+                        "opaBoheomFg": "1",
+                        "post": "02574",
+                        "saeopjaDrno": "5408700815",
+                        "saeopjangNm": "주식회사엠디시크릿",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20170701"
+                    },
+                    {
+                        "addr": "경기 수원시 영통구 매탄로108번길 16 702호 (매탄동, 엔타운)",
+                        "opaBoheomFg": "1",
+                        "post": "16545",
+                        "saeopjaDrno": "1359249658",
+                        "saeopjangNm": "메카영어학원",
+                        "sangsiInwonCnt": "0",
+                        "seongripDt": "20180101"
+                    },
+                    {
+                        "addr": "경상북도 경주시 백률로 6 (동천동) 4층",
+                        "opaBoheomFg": "1",
+                        "post": "38104",
+                        "saeopjaDrno": "5058142580",
+                        "saeopjangNm": "서라벌신문（주）",
+                        "sangsiInwonCnt": "6",
+                        "seongripDt": "20051101"
+                    },
+                    {
+                        "addr": "강원도 동해시 샘실3길82-4 101호(천곡동)",
+                        "gyEopjongCd": "87210",
+                        "gyEopjongNm": "보육시설 운영업",
+                        "opaBoheomFg": "2",
+                        "post": "25761",
+                        "saeopjaDrno": "2228014348",
+                        "saeopjangNm": "아해뜰어린이집",
+                        "sangsiInwonCnt": "6",
+                        "seongripDt": "20120301"
+                    },
+                    {
+                        "addr": "부산 중구 광복로49번길 5 (창선동1가)",
+                        "gyEopjongCd": "68121",
+                        "gyEopjongNm": "주거용 건물 개발 및 공급업",
+                        "opaBoheomFg": "2",
+                        "post": "48947",
+                        "saeopjaDrno": "3108133052",
+                        "saeopjangNm": "(주)부산네트워크디엔씨",
+                        "sangsiInwonCnt": "3",
+                        "seongripDt": "20210202"
+                    },
+                    {
+                        "addr": "서울특별시 강남구 밤고개로1길 10 (수서동, 수서현대벤쳐빌) 2031호",
+                        "opaBoheomFg": "1",
+                        "post": "06349",
+                        "saeopjaDrno": "5080339484",
+                        "saeopjangNm": "제이에이치에스아이",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20130610"
+                    },
+                    {
+                        "addr": "경기도 수원시 권선구 입북로 50 (입북동, 생활지원센터) 1층",
+                        "opaBoheomFg": "1",
+                        "post": "16369",
+                        "saeopjaDrno": "3358000121",
+                        "saeopjangNm": "동산애어린이집",
+                        "sangsiInwonCnt": "4",
+                        "seongripDt": "20150720"
+                    },
+                    {
+                        "addr": "경기 고양시 일산서구 덕산로 153-25 (가좌동)",
+                        "gyEopjongCd": "46799",
+                        "gyEopjongNm": "그 외 기타 상품 전문 도매업",
+                        "opaBoheomFg": "2",
+                        "post": "10205",
+                        "saeopjaDrno": "1288690202",
+                        "saeopjangNm": "주식회사엘진도티엔시",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20140401"
+                    },
+                    {
+                        "addr": "서울특별시 강남구 학동로6길 11",
+                        "gyEopjongCd": "47219",
+                        "gyEopjongNm": "기타 식료품 소매업",
+                        "opaBoheomFg": "2",
+                        "post": "06111",
+                        "saeopjaDrno": "2118100249",
+                        "saeopjangNm": "달톤비알엠(주)",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20010201"
+                    },
+                    {
+                        "addr": "경기 성남시 분당구 야탑로 28 우당빌딩 301호 (야탑동)",
+                        "gyEopjongCd": "46800",
+                        "gyEopjongNm": "상품 종합 도매업",
+                        "opaBoheomFg": "2",
+                        "post": "13522",
+                        "saeopjaDrno": "1291787494",
+                        "saeopjangNm": "지원케미칼",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20020101"
+                    },
+                    {
+                        "addr": "대구 북구 검단로27길 76 (검단동)",
+                        "opaBoheomFg": "1",
+                        "post": "41509",
+                        "saeopjaDrno": "5041647696",
+                        "saeopjangNm": "성우엔지니어링/제2공장",
+                        "sangsiInwonCnt": "6",
+                        "seongripDt": "20170731"
+                    },
+                    {
+                        "addr": "서울 강서구 가로공원로76길 9 (화곡동, 한국어린이집)",
+                        "opaBoheomFg": "1",
+                        "post": "07762",
+                        "saeopjaDrno": "1098012028",
+                        "saeopjangNm": "캥거루어린이집",
+                        "sangsiInwonCnt": "9",
+                        "seongripDt": "20050301"
+                    },
+                    {
+                        "addr": "경기 김포시 김포한강8로 377 (구래동, 나비마을리슈빌아파트)",
+                        "gyEopjongCd": "87210",
+                        "gyEopjongNm": "보육시설 운영업",
+                        "opaBoheomFg": "2",
+                        "post": "10070",
+                        "saeopjaDrno": "1378034648",
+                        "saeopjangNm": "나비마을어린이집",
+                        "sangsiInwonCnt": "11",
+                        "seongripDt": "20130401"
+                    },
+                    {
+                        "addr": "경기도 성남시 분당구 중앙공원로 20 (서현동, 현대아파트 31/5) 427동 2402호",
+                        "opaBoheomFg": "1",
+                        "post": "13589",
+                        "saeopjaDrno": "1293518195",
+                        "saeopjangNm": "엔알티",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20130902"
+                    },
+                    {
+                        "addr": "인천 부평구 충선로209번길 13 6층 611-1호 (삼산동, SM프라자)",
+                        "opaBoheomFg": "1",
+                        "post": "21344",
+                        "saeopjaDrno": "2051437958",
+                        "saeopjangNm": "공간구조종합건축사사무소",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20190510"
+                    },
+                    {
+                        "addr": "서울특별시 동작구 흑석로 101-3 (흑석동, 2층)",
+                        "opaBoheomFg": "1",
+                        "post": "06910",
+                        "saeopjaDrno": "1081949406",
+                        "saeopjangNm": "홍콩반점0410중앙대점",
+                        "sangsiInwonCnt": "6",
+                        "seongripDt": "20120301"
+                    },
+                    {
+                        "addr": "경기도 포천시 영중면 양문공단로2길 28 (영중면)",
+                        "opaBoheomFg": "1",
+                        "post": "11128",
+                        "saeopjaDrno": "1273217791",
+                        "saeopjangNm": "대진섬유",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20090701"
+                    },
+                    {
+                        "addr": "경기 포천시 내촌면 금강로 2057",
+                        "gyEopjongCd": "29199",
+                        "gyEopjongNm": "그 외 기타 일반목적용 기계 제조업",
+                        "opaBoheomFg": "2",
+                        "post": "11192",
+                        "saeopjaDrno": "5151888560",
+                        "saeopjangNm": "하나환경기계",
+                        "sangsiInwonCnt": "0",
+                        "seongripDt": "20180101"
+                    },
+                    {
+                        "addr": "경기도 광명시 광덕산로33 (하안동, 경흥빌딩) 105호",
+                        "gyEopjongCd": "56192",
+                        "gyEopjongNm": "피자, 햄버거, 샌드위치 및 유사 음식점업",
+                        "opaBoheomFg": "2",
+                        "post": "14241",
+                        "saeopjaDrno": "1401023917",
+                        "saeopjangNm": "알볼로피자하안점",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20130401"
+                    },
+                    {
+                        "addr": "경기 남양주시 늘을1로16번길 9-32 (호평동) 1층",
+                        "opaBoheomFg": "1",
+                        "post": "12149",
+                        "saeopjaDrno": "5933701055",
+                        "saeopjangNm": "하오핑",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20221005"
+                    },
+                    {
+                        "addr": "제주 서귀포시 남원읍 태위로360번길 63-19",
+                        "opaBoheomFg": "1",
+                        "post": "63610",
+                        "saeopjaDrno": "6168133455",
+                        "saeopjangNm": "어업회사법인주식회사성화수산",
+                        "sangsiInwonCnt": "9",
+                        "seongripDt": "20011101"
+                    },
+                    {
+                        "addr": "경기 의정부시 평화로 553 (의정부동)",
+                        "gyEopjongCd": "47122",
+                        "gyEopjongNm": "체인화 편의점",
+                        "opaBoheomFg": "2",
+                        "post": "11691",
+                        "saeopjaDrno": "1272269306",
+                        "saeopjangNm": "GS25의정부역",
+                        "sangsiInwonCnt": "3",
+                        "seongripDt": "20060701"
+                    },
+                    {
+                        "addr": "서울특별시 용산구 원효로128 (원효로3가, 이－테크밸리 1508호)",
+                        "opaBoheomFg": "1",
+                        "post": "04366",
+                        "saeopjaDrno": "1058126997",
+                        "saeopjangNm": "(주)케이에치프라스틱상사",
+                        "sangsiInwonCnt": "0",
+                        "seongripDt": "20120101"
+                    },
+                    {
+                        "addr": "전라북도 익산시 중앙로3길 53 호암마트넷",
+                        "gyEopjongCd": "47121",
+                        "gyEopjongNm": "슈퍼마켓",
+                        "opaBoheomFg": "2",
+                        "post": "54593",
+                        "saeopjaDrno": "7458601557",
+                        "saeopjangNm": "(유)삼촌네호암마트",
+                        "sangsiInwonCnt": "8",
+                        "seongripDt": "20200601"
+                    },
+                    {
+                        "addr": "경상북도 상주시 남성1길 66 (남성동) 2층",
+                        "gyEopjongCd": "71202",
+                        "gyEopjongNm": "세무사업",
+                        "opaBoheomFg": "2",
+                        "post": "37216",
+                        "saeopjaDrno": "5110896981",
+                        "saeopjangNm": "상산세무회계사무소",
+                        "sangsiInwonCnt": "4",
+                        "seongripDt": "20131223"
+                    },
+                    {
+                        "addr": "강원도 속초시 동해대로 4305 (교동) 2층",
+                        "gyEopjongCd": "85632",
+                        "gyEopjongNm": "기타 교습학원",
+                        "opaBoheomFg": "2",
+                        "post": "24862",
+                        "saeopjaDrno": "1289008714",
+                        "saeopjangNm": "설악수학학원",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20120901"
+                    },
+                    {
+                        "addr": "인천광역시 서구 원창로 83 3층",
+                        "opaBoheomFg": "1",
+                        "post": "22770",
+                        "saeopjaDrno": "7741800426",
+                        "saeopjangNm": "에스에이치(SH)",
+                        "sangsiInwonCnt": "4",
+                        "seongripDt": "20170626"
+                    },
+                    {
+                        "addr": "서울특별시 동작구 사당로 230 (사당동, 2층)",
+                        "opaBoheomFg": "1",
+                        "post": "07010",
+                        "saeopjaDrno": "1279149683",
+                        "saeopjangNm": "시카고아이치과",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20130401"
+                    },
+                    {
+                        "addr": "전북 군산시 법원로 70 101호 (조촌동, 전주지방검찰청군산지청)",
+                        "opaBoheomFg": "1",
+                        "post": "54079",
+                        "saeopjaDrno": "4018261225",
+                        "saeopjangNm": "법무부법사랑위원군산익산지역연합회",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20120109"
+                    },
+                    {
+                        "addr": "전남 목포시 남악로 161 3층 (옥암동)",
+                        "opaBoheomFg": "1",
+                        "post": "58681",
+                        "saeopjaDrno": "8308001270",
+                        "saeopjangNm": "전남재활주간보호센터",
+                        "sangsiInwonCnt": "15",
+                        "seongripDt": "20191219"
+                    },
+                    {
+                        "addr": "경기 김포시 하성면 귀전로 188-1",
+                        "opaBoheomFg": "1",
+                        "post": "10011",
+                        "saeopjaDrno": "1378620530",
+                        "saeopjangNm": "비전네이처(주)",
+                        "sangsiInwonCnt": "15",
+                        "seongripDt": "20120501"
+                    },
+                    {
+                        "addr": "대구 달성군 하빈면 하산길 68-31",
+                        "opaBoheomFg": "1",
+                        "post": "42900",
+                        "saeopjaDrno": "3410100441",
+                        "saeopjangNm": "현대종합가스",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20160701"
+                    },
+                    {
+                        "addr": "서울 서초구 강남대로37길 40 (서초동) 1동 지층 1호",
+                        "opaBoheomFg": "1",
+                        "post": "06734",
+                        "saeopjaDrno": "5375400354",
+                        "saeopjangNm": "아일랜드 이너프",
+                        "sangsiInwonCnt": "0",
+                        "seongripDt": "20190106"
+                    },
+                    {
+                        "addr": "전남 광양시 태인길 377 (태인동)",
+                        "opaBoheomFg": "1",
+                        "post": "57814",
+                        "saeopjaDrno": "4070344743",
+                        "saeopjangNm": "영진크레인",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20180101"
+                    },
+                    {
+                        "addr": "경북 구미시 인동17길 6 (인의동)",
+                        "gyEopjongCd": "42201",
+                        "gyEopjongNm": "배관 및 냉ㆍ난방 공사업",
+                        "opaBoheomFg": "2",
+                        "post": "39436",
+                        "saeopjaDrno": "5131198608",
+                        "saeopjangNm": "하나냉동공조/건설일괄",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20151209"
+                    },
+                    {
+                        "addr": "경기 화성시 남양읍 매바위로 569",
+                        "gyEopjongCd": "33999",
+                        "gyEopjongNm": "그 외 기타 달리 분류되지 않은 제품 제조업",
+                        "opaBoheomFg": "2",
+                        "post": "18281",
+                        "saeopjaDrno": "2348502855",
+                        "saeopjangNm": "(주)창우알에스화성지점",
+                        "sangsiInwonCnt": "6",
+                        "seongripDt": "20160125"
+                    },
+                    {
+                        "addr": "부산 사상구 장인로78번길 130 (학장동, 금보산업사)",
+                        "opaBoheomFg": "1",
+                        "post": "47026",
+                        "saeopjaDrno": "6064475846",
+                        "saeopjangNm": "진성금속",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20071104"
+                    },
+                    {
+                        "addr": "서울 중구 퇴계로 163 (충무로2가, 허주회관) 510호",
+                        "gyEopjongCd": "68223",
+                        "gyEopjongNm": "부동산 감정평가업",
+                        "opaBoheomFg": "2",
+                        "post": "04553",
+                        "saeopjaDrno": "1260929904",
+                        "saeopjangNm": "뉴서울감정평가사사무소",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20151204"
+                    },
+                    {
+                        "addr": "경기도 남양주시 진건읍 진건오남로390번길174-20",
+                        "opaBoheomFg": "1",
+                        "post": "12129",
+                        "saeopjaDrno": "1261908062",
+                        "saeopjangNm": "신건산업냉동",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20130201"
+                    },
+                    {
+                        "addr": "강원 정선군 남면 자뭇골길 188-3",
+                        "opaBoheomFg": "1",
+                        "post": "26146",
+                        "saeopjaDrno": "2258215715",
+                        "saeopjangNm": "사회복지법인에덴원증산어린이집",
+                        "sangsiInwonCnt": "11",
+                        "seongripDt": "19971001"
+                    },
+                    {
+                        "addr": "서울 중구 마른내로12길 7-4 102호 (충무로5가, 현대 프레스타워)",
+                        "gyEopjongCd": "46451",
+                        "gyEopjongNm": "생활용 포장 및 위생용품, 봉투 및 유사 제품 도매업",
+                        "opaBoheomFg": "2",
+                        "post": "04559",
+                        "saeopjaDrno": "2018119964",
+                        "saeopjangNm": "(주)중원페이퍼랜드",
+                        "sangsiInwonCnt": "0",
+                        "seongripDt": "19981001"
+                    },
+                    {
+                        "addr": "경기도 김포시 하성면 하성로570번길165-14",
+                        "opaBoheomFg": "1",
+                        "post": "10008",
+                        "saeopjaDrno": "1378631361",
+                        "saeopjangNm": "（주）새한산업",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20130321"
+                    },
+                    {
+                        "addr": "경기도 의정부시 부용로174 (신곡동, 상록아이파크 단지내)",
+                        "gyEopjongCd": "87210",
+                        "gyEopjongNm": "보육시설 운영업",
+                        "opaBoheomFg": "2",
+                        "post": "11774",
+                        "saeopjaDrno": "1278056475",
+                        "saeopjangNm": "상록어린이집",
+                        "sangsiInwonCnt": "3",
+                        "seongripDt": "20131106"
+                    },
+                    {
+                        "addr": "대구 북구 동변로24길 32-8 (동변동)",
+                        "opaBoheomFg": "1",
+                        "post": "41412",
+                        "saeopjaDrno": "5041409801",
+                        "saeopjangNm": "삼성냉동",
+                        "sangsiInwonCnt": "2",
+                        "seongripDt": "20150701"
+                    },
+                    {
+                        "addr": "대전광역시 유성구 유성대로1184번길 25",
+                        "opaBoheomFg": "1",
+                        "post": "34109",
+                        "saeopjaDrno": "2118607816",
+                        "saeopjangNm": "(주)부강테크",
+                        "sangsiInwonCnt": "81",
+                        "seongripDt": "19910701"
+                    },
+                    {
+                        "addr": "전라북도 부안군 진서면 곰소항길25",
+                        "gyEopjongCd": "47219",
+                        "gyEopjongNm": "기타 식료품 소매업",
+                        "opaBoheomFg": "2",
+                        "post": "56346",
+                        "saeopjaDrno": "4049074137",
+                        "saeopjangNm": "삼대젓갈",
+                        "sangsiInwonCnt": "1",
+                        "seongripDt": "20130325"
+                    },
+                    {
+                        "addr": "경기 수원시 권선구 덕영대로1190번길 100 (권선동)",
+                        "opaBoheomFg": "1",
+                        "post": "16662",
+                        "saeopjaDrno": "3918000548",
+                        "saeopjangNm": "정다운어린이집",
+                        "sangsiInwonCnt": "4",
+                        "seongripDt": "20161219"
+                    },
+                    {
+                        "addr": "인천 서구 승학로288번길 5-10 (연희동)",
+                        "opaBoheomFg": "1",
+                        "post": "22722",
+                        "saeopjaDrno": "1378004770",
+                        "saeopjangNm": "주은색동원어린이집",
+                        "sangsiInwonCnt": "10",
+                        "seongripDt": "19990406"
+                    }
+                ]
+            },
+            "numOfRows": "100",
+            "pageNo": "1000",
+            "totalCount": "5429230"
+        }
+    }
+}
