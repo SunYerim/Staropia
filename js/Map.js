@@ -57,9 +57,8 @@ var previewWindow = new kakao.maps.CustomOverlay({
   // 현재는 위도, 경도를 표시하게 설정, 변경 가능함을 보인다
   content:
     '<div id="previewWindow">' +
-    "위도: " +
     lat +
-    "<br>경도: " +
+    "<br>" +
     lng +
     "<br><br>" +
     '<a href="CompanyInfo.html">' +

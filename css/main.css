@@ -10,11 +10,11 @@ body {
   height: 100%;
 }
 
-a {
+/*a {
   text-decoration: none;
   color: white;
   font-weight: 600;
-}
+}*/
 
 footer {
   text-align: center;
@@ -41,13 +41,27 @@ footer {
   color: red;
 }
 
+.navbar__logo a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
+.navbar__menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
 .navbar__menu li:hover {
-  background-color: #2c3333;
+  color: #2c3333;
   border-radius: 4px;
 }
+
 .navbar__menu {
   display: flex;
   list-style: none;
+  vertical-align: middle;
   padding-left: 0;
 }
 
