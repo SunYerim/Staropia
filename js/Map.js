@@ -9,6 +9,7 @@ var mapContainer = document.getElementById("map"), // 지도를 표시할 div
 var map = new kakao.maps.Map(mapContainer, mapOption);
 var markers = [];
 function keywordSearch() {
+  console.log("호출되었습니다");
   var keyword = $("#keyword").val();
 
   // 장소 검색 객체 생성
