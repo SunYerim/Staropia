@@ -1,0 +1,73 @@
+.info-page {
+    height: calc(93% - 50px);
+    width: 100%;
+    background-color: #5F7A61;
+    justify-content: center;
+}
+
+.left-page {
+    height: 100%;
+    width:40%;
+    background-color: white;
+    float: left;
+    margin-left: 10%;
+}
+
+.left-page ol {
+    list-style-type: none;
+    padding: 5%;
+}
+
+.left-page li {
+    text-align: center;
+}
+
+.left-page img {
+    height: 50%;
+    width: 80%;
+}
+
+.left-page a {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.right-page {
+    height: 100%;
+    width: 40%;
+    background-color: #D5EEBB;
+    float: left;
+    margin-right: 10%;
+    justify-content: center;
+}
+
+.startup-info {
+    height: 95%;
+    width: 90%;
+    background-color: #e2ead9;
+    margin: auto;
+}
+
+.startup-info ol {
+    padding-top: 5%;
+}
+
+.startup-info a {
+    font-size: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.pdf-download button{
+    margin-top: 8%;
+    background-color: rgb(177, 177, 177);
+    font-size: 15px;
+    font-weight: 550;
+    color: black;
+    height: 80px;
+    width: 450px;
+    border: none;
+    border-radius: 20px;
+}
+
