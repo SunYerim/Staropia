@@ -1,7 +1,7 @@
 .container {
     height: calc(87vh);
     font-size: 28px;
-    margin: 72px 48px;
+    margin: 72px 72px 0px 48px;
     display: flex;
     flex-flow: column wrap;
 }
@@ -12,11 +12,13 @@
 }
 
 #address {
+    color: gray;
     font-size: 18px;
-    margin-top: 18px;
+    margin-top: 12px;
 }
 
-#personCount {
+#corpNumber {
+    color: gray;
     font-size: 18px;
     margin-top: 6px;
 }
@@ -26,13 +28,13 @@ ul {
     margin: 6px 0px;
 }
 
-.twoColumn {
+.multiColumn {
     display: flex;
     flex-flow: row nowrap;
     padding: 0px;
 }
 
-.twoColumn > ul{
+.multiColumn ul{
     width: 50%;
 }
 
