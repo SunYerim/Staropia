@@ -1,16 +1,18 @@
-<!--ServiceInfo.html => 서비스 소개 페이지-->
+<!--CompanyInfo.html => 회사 정보 상세 페이지-->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>Information</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/companyInfo.css" />
     <script
       src="https://kit.fontawesome.com/698d84a497.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+    <!-- navbar -->
     <nav class="navbar">
       <div class="navbar__logo">
         <!-- 현재 fontawesome 깨져보이는 현상때문에 임시로 solid-->
@@ -24,7 +26,37 @@
         <!-- <li><a href="">산재 지정병원 목록</a></li> -->
       </ul>
     </nav>
-    <div>여긴 상세페이지입니다.</div>
+    <!-- 본문 -->
+    <div class="container">
+      <ul class="info">
+        <li><div id="name">늘올주점</div></li>
+        <li><div id="address">경기 고양시 일산동구 고봉로 26-32 (장항동, 양우로데오랜드) C동202호</div></li>
+        <li><div id="personCount">상시인원: 2</div></li>
+        <li><div id="personCount">사업자등록번호: 8442600448</div></li>
+      </ul>
+      <br><br>
+      <ul class="twoColumn">
+        <ul>
+          <li><div class="header">고용업종명</div></li>
+          <li><div class="content">기타 주점업</div></li>
+        </ul>
+        <ul>
+          <li><div class="header">고용업종코드</div></li>
+          <li><div class="content">56219</div></li>
+        </ul>
+      </ul>
+      <ul class="twoColumn">
+        <ul>
+          <li><div class="header">산재업종명</div></li>
+          <li><div class="content">이름</div></li>
+        </ul>
+        <ul>
+          <li><div class="header">산재업종코드</div></li>
+          <li><div class="content">값</div></li>
+        </ul>
+      </ul>
+    </div>
+    <!-- footer -->
     <footer>copyright staropia</footer>
   </body>
 </html>
