@@ -147,21 +147,24 @@ function showPreviewWindow(position) {
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
 
+var addressCallback = function(result, status) {
+  console.log(status);
+
+  // 정상적으로 검색이 완료됐으면 
+  if (status === kakao.maps.services.Status.OK) {
+
+    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+    // 결과값으로 받은 위치를 마커로 표시합니다
+    addMarker(coords);
+
+    // 인포윈도우로 장소에 대한 설명을 표시합니다
+    showPreviewWindow(coords);
+
+    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+    map.setCenter(coords);
+  }
+}
+
 // 주소로 좌표를 검색합니다
-geocoder.addressSearch('경기 고양시 일산동구 고봉로 26-32 (장항동, 양우로데오랜드) C동202호', function(result, status) {
-    console.log(status);
-    // 정상적으로 검색이 완료됐으면 
-     if (status === kakao.maps.services.Status.OK) {
-
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-        // 결과값으로 받은 위치를 마커로 표시합니다
-        addMarker(coords);
-
-        // 인포윈도우로 장소에 대한 설명을 표시합니다
-        showPreviewWindow(coords);
-
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        map.setCenter(coords);
-    } 
-});    
+geocoder.addressSearch('경기 고양시 일산동구 고봉로 26-32 (장항동, 양우로데오랜드) C동202호', addressCallback);    
