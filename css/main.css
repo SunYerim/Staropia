@@ -117,7 +117,7 @@ footer {
   border: solid #375548;
   border-radius: 20px;
   width: 200px;
-  height: 100px;
+  height: auto;
   padding: 20px;
   z-index: 1;
 }
