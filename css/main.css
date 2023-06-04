@@ -56,11 +56,16 @@ footer {
   display: flex;
   list-style: none;
   vertical-align: middle;
+  justify-content: center;
   padding-left: 0;
 }
 
 .navbar__menu li {
   padding: 8px 12px;
+  justify-content: center;
+  vertical-align: middle;
+  display: flex;
+  margin-top: 18px;
 }
 
 #map {

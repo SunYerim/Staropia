@@ -17,7 +17,9 @@ var searchForm = document.getElementsByClassName("search-button")[0];
 searchForm?.addEventListener("click", function (e) {
   e.preventDefault();
   searchOnJson();
+
 })
+
 
 // 주소 - 좌표 변환 객체 생성
 var geocoder = new kakao.maps.services.Geocoder();
@@ -31,16 +33,21 @@ function searchOnJson() {
     })
     .then((obj) => {
       List(obj, keyword);
+
     })
+
 
   // 이름, 주소를 받아와 마커와 미리보기창을 생성하는 함수
   function List(obj, keyword) {
     console.log(keyword);
+
     const saeopjangNm = obj.map(v => v.saeopjangNm);
+
     const name = new Array(saeopjangNm);
 
     var i;
     for (i = 0; i < obj.length; i++) {
+
         if (name[0][i] == keyword) {
             break;
         }
@@ -111,7 +118,9 @@ function addMarker(position, name, address) {
   markers.push(marker);
 
   // 마커에 click 이벤트를 등록한다
+
   kakao.maps.event.addListener(marker, "click", showPreviewWindow(position, name, address));
+
 }
 
 // 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수
@@ -150,6 +159,7 @@ function showPreviewWindow(position, name, address) {
     var content =
       '<script type="text/javascript"src="companyInfo.js"></script>' +
       '<div id="previewWindow">' +
+
         '<div id="previewName">' +
           name +
         '</div>' +
@@ -161,17 +171,22 @@ function showPreviewWindow(position, name, address) {
         '</a>' +
       '</div>';
 
+
     // 미리보기창 내용을 변경한다.
     previewWindow.setContent(content);
     // 미리보기창을 맵 위에 표시한다.
     previewWindow.setMap(map);
 
     // 로컬 저장소에 name을 임시저장한다.
+
     localStorage.setItem('name', name);
+
   };
 }
 
 // 지도 클릭 시 미리보기창을 숨긴다
 kakao.maps.event.addListener(map, "click", function () {
   previewWindow.setMap(null);
+
 });
+
