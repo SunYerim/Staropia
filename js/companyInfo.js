@@ -1,7 +1,16 @@
+// 고용업종명 ~ 상시인원 주소 배열
 const contents = document.getElementsByClassName("content");
 
-searchToName("다원기업");
+// 상세페이지 진입 시, 로컬 저장소에서 가장 마지막에 저장된 값을 가져온다.
+if(localStorage.getItem('name')) {
+    var lastName = localStorage.getItem('name');
+    console.log(lastName);
+}
 
+// 가져온 값으로 json 탐색
+searchToName(lastName);
+
+// 이름으로 json 데이터를 읽어오는 함ㅅ
 function searchToName(companyName) {
     fetch("../json/parsing2.json")
         .then((res) => {
@@ -15,6 +24,7 @@ function searchToName(companyName) {
         const saeopjangNm = obj.map(v => v.saeopjangNm);
         const name = new Array(saeopjangNm);
 
+        // 인덱스 검색
         var i;
         for (i = 0; i < obj.length; i++) {
             if (name[0][i] == companyName) {
