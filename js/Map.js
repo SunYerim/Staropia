@@ -47,10 +47,13 @@ function searchOnJson() {
 
     var i;
     for (i = 0; i < obj.length; i++) {
-
         if (name[0][i] == keyword) {
             break;
         }
+    }
+    
+    if(i === obj.length) {
+      alert("검색 결과가 없습니다.");
     }
 
     var nameZero = name[0][i];
