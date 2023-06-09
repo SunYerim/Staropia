@@ -33,47 +33,46 @@ function searchOnJson() {
     })
     .then((obj) => {
       List(obj, keyword);
-
     })
-
 
   // 이름, 주소를 받아와 마커와 미리보기창을 생성하는 함수
   function List(obj, keyword) {
-    console.log(keyword);
+    hideMarkers();
+    // markers 배열 초기화
+    markers.splice(0, markers.length);
 
-    const saeopjangNm = obj.map(v => v.saeopjangNm);
+    const name = obj.map(v => v.saeopjangNm);    
+    const address = obj.map(v => v.addr);
 
-    const name = new Array(saeopjangNm);
+    var indexes = [];
 
-    var i;
     for (i = 0; i < obj.length; i++) {
-        if (name[0][i] == keyword) {
-            break;
+        if (name[i].includes(keyword)) {
+            indexes.push(i);
         }
     }
-    
-    if(i === obj.length) {
+
+    if(indexes.length === 0) {
       alert("검색 결과가 없습니다.");
     }
 
-    var nameZero = name[0][i];
+    console.log(indexes);
 
-    const addr = obj.map(v => v.addr);
-    const address = new Array(addr);
-    var addressZero = address[0][i];
-
-    // 주소로 좌표를 검색
-    geocoder.addressSearch(addressZero, function (result, status) {
-      // 정상적으로 검색이 완료됐으면 
-      if (status === kakao.maps.services.Status.OK) {
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-    
-        // 결과값으로 받은 위치를 마커로 표시, addMarker에서 미리보기창도 생성
-        addMarker(coords, nameZero, addressZero);
-        // 지도의 중심을 결과값으로 받은 위치로 이동
-        map.setCenter(coords);
-      }
-    });
+    for(let i of indexes) {  
+      var coords;
+      // 주소로 좌표를 검색
+      geocoder.addressSearch(address[i], function (result, status) {
+        // 정상적으로 검색이 완료됐으면 
+        if (status === kakao.maps.services.Status.OK) {
+          coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+      
+          // 결과값으로 받은 위치를 마커로 표시, addMarker에서 미리보기창도 생성
+          addMarker(coords, name[i], address[i]);
+          // 지도의 중심을 결과값으로 받은 위치로 이동
+          map.setCenter(coords);
+        }
+      }); 
+    }
   }
 }
 
@@ -111,7 +110,7 @@ function searchOnJson() {
 
 // 마커를 생성하는 함수
 function addMarker(position, name, address) {
-  var marker = new kakao.maps.Marker({
+  const marker = new kakao.maps.Marker({
     position: position,
   });
 
@@ -119,9 +118,9 @@ function addMarker(position, name, address) {
   marker.setMap(map);
 
   markers.push(marker);
+  console.log(name);
 
   // 마커에 click 이벤트를 등록한다
-
   kakao.maps.event.addListener(marker, "click", showPreviewWindow(position, name, address));
 
 }
