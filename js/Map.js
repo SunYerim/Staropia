@@ -121,8 +121,8 @@ function addMarker(position, name, address) {
   console.log(name);
 
   // 마커에 click 이벤트를 등록한다
-  kakao.maps.event.addListener(marker, "click", showPreviewWindow(position, name, address));
-
+  kakao.maps.event.addListener(marker, "mouseover", showPreviewWindow(position, name, address));
+  kakao.maps.event.addListener(marker, "mouseout", hidePreviewWindow(position, name, address));
 }
 
 // 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수
@@ -180,15 +180,13 @@ function showPreviewWindow(position, name, address) {
     previewWindow.setMap(map);
 
     // 로컬 저장소에 name을 임시저장한다.
-
     localStorage.setItem('name', name);
 
   };
 }
 
-// 지도 클릭 시 미리보기창을 숨긴다
-kakao.maps.event.addListener(map, "click", function () {
-  previewWindow.setMap(null);
-
-});
-
+function hidePreviewWindow() {
+  return function () {
+    previewWindow.setMap(null);
+  }
+}
