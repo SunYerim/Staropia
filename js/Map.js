@@ -24,56 +24,60 @@ searchForm?.addEventListener("click", function (e) {
 // 주소 - 좌표 변환 객체 생성
 var geocoder = new kakao.maps.services.Geocoder();
 
-// 이름(keyword)으로 json 인덱스를 찾는 함수
-function searchOnJson() {
-  var keyword = document.getElementById("keyword").value;
+var jsonData;
+
+function getJsonData() {
   fetch("../json/parsing2.json")
     .then((res) => {
       return res.json();
     })
     .then((obj) => {
-      List(obj, keyword);
-
+      jsonData = obj;
     })
+}
 
+getJsonData();
 
+// 이름(keyword)으로 json 인덱스를 찾는 함수
+function searchOnJson() {
+  var keyword = document.getElementById("keyword").value;
+  List(jsonData, keyword);
   // 이름, 주소를 받아와 마커와 미리보기창을 생성하는 함수
   function List(obj, keyword) {
-    console.log(keyword);
+    hideMarkers();
+    // markers 배열 초기화
+    markers.splice(0, markers.length);
 
-    const saeopjangNm = obj.map(v => v.saeopjangNm);
+    const name = obj.map(v => v.saeopjangNm);    
+    const address = obj.map(v => v.addr);
 
-    const name = new Array(saeopjangNm);
+    var indexes = [];
 
-    var i;
     for (i = 0; i < obj.length; i++) {
-        if (name[0][i] == keyword) {
-            break;
+        if (name[i].includes(keyword)) {
+            indexes.push(i);
         }
     }
-    
-    if(i === obj.length) {
+
+    if(indexes.length === 0) {
       alert("검색 결과가 없습니다.");
     }
 
-    var nameZero = name[0][i];
-
-    const addr = obj.map(v => v.addr);
-    const address = new Array(addr);
-    var addressZero = address[0][i];
-
-    // 주소로 좌표를 검색
-    geocoder.addressSearch(addressZero, function (result, status) {
-      // 정상적으로 검색이 완료됐으면 
-      if (status === kakao.maps.services.Status.OK) {
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-    
-        // 결과값으로 받은 위치를 마커로 표시, addMarker에서 미리보기창도 생성
-        addMarker(coords, nameZero, addressZero);
-        // 지도의 중심을 결과값으로 받은 위치로 이동
-        map.setCenter(coords);
-      }
-    });
+    for(let i of indexes) {  
+      var coords;
+      // 주소로 좌표를 검색
+      geocoder.addressSearch(address[i], function (result, status) {
+        // 정상적으로 검색이 완료됐으면 
+        if (status === kakao.maps.services.Status.OK) {
+          coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+      
+          // 결과값으로 받은 위치를 마커로 표시, addMarker에서 미리보기창도 생성
+          addMarker(coords, i);
+          // 지도의 중심을 결과값으로 받은 위치로 이동
+          map.setCenter(coords);
+        }
+      }); 
+    }
   }
 }
 
@@ -110,8 +114,8 @@ function searchOnJson() {
 // }
 
 // 마커를 생성하는 함수
-function addMarker(position, name, address) {
-  var marker = new kakao.maps.Marker({
+function addMarker(position, index) {
+  const marker = new kakao.maps.Marker({
     position: position,
   });
 
@@ -121,9 +125,9 @@ function addMarker(position, name, address) {
   markers.push(marker);
 
   // 마커에 click 이벤트를 등록한다
-
-  kakao.maps.event.addListener(marker, "click", showPreviewWindow(position, name, address));
-
+  kakao.maps.event.addListener(marker, "mouseover", showPreviewWindow(position, index));
+  kakao.maps.event.addListener(marker, "mouseout", hidePreviewWindow());
+  kakao.maps.event.addListener(marker, "click", showOffcanvas(index));
 }
 
 // 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수
@@ -153,25 +157,20 @@ var previewWindow = new kakao.maps.CustomOverlay({
 });
 
 // 미리보기창을 표시하는 함수
-function showPreviewWindow(position, name, address) {
+function showPreviewWindow(position, i) {
   return function () {
     // 미리보기창 위치를 변경한다
     previewWindow.setPosition(position);
 
     // 변경될 내용
     var content =
-      '<script type="text/javascript"src="companyInfo.js"></script>' +
       '<div id="previewWindow">' +
-
         '<div id="previewName">' +
-          name +
+          jsonData[i]['saeopjangNm'] +
         '</div>' +
         '<div id="previewAddress">' +
-          address +
+          jsonData[i].addr +
         '</div><br>' +
-        '<a href="CompanyInfo.html">' +
-          '상세보기' +
-        '</a>' +
       '</div>';
 
 
@@ -181,15 +180,30 @@ function showPreviewWindow(position, name, address) {
     previewWindow.setMap(map);
 
     // 로컬 저장소에 name을 임시저장한다.
-
     localStorage.setItem('name', name);
-
   };
 }
 
-// 지도 클릭 시 미리보기창을 숨긴다
-kakao.maps.event.addListener(map, "click", function () {
-  previewWindow.setMap(null);
+function hidePreviewWindow() {
+  return function () {
+    previewWindow.setMap(null);
+  }
+}
 
-});
+// 고용업종명 ~ 상시인원 주소 배열
+var contents = document.getElementsByClassName("content");
 
+// 상세 정보를 오프캔버스로 띄움
+function showOffcanvas(i) {
+  return function() {
+    var offcanvasElement = document.getElementById('offcanvas');
+    var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+    offcanvas.show();
+    document.getElementById("name").innerHTML = jsonData[i]['saeopjangNm'];
+    document.getElementById("address").innerHTML = jsonData[i]['addr'];
+    document.getElementById("companyNumber").innerHTML = "사업자등록번호: " + jsonData[i]['saeopjaDrno'];
+    contents[0].innerHTML = jsonData[i]['gyEopjongNm'];
+    contents[1].innerHTML = jsonData[i]['gyEopjongCd'];
+    contents[2].innerHTML = jsonData[i]['seongripDt'];
+  }
+}
