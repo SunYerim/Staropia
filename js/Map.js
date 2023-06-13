@@ -180,7 +180,7 @@ function showPreviewWindow(position, i) {
     previewWindow.setMap(map);
 
     // 로컬 저장소에 name을 임시저장한다.
-    localStorage.setItem('name', name);
+    // localStorage.setItem('name', name);
   };
 }
 
@@ -204,6 +204,6 @@ function showOffcanvas(i) {
     document.getElementById("companyNumber").innerHTML = "사업자등록번호: " + jsonData[i]['saeopjaDrno'];
     contents[0].innerHTML = jsonData[i]['gyEopjongNm'];
     contents[1].innerHTML = jsonData[i]['gyEopjongCd'];
-    contents[2].innerHTML = jsonData[i]['seongripDt'];
+    contents[4].innerHTML = jsonData[i]['seongripDt'];
   }
 }
