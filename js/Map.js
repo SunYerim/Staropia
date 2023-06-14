@@ -95,6 +95,7 @@ function searchOnJson() {
     map.setBounds(bounds);
   }
 }
+}
 
 // index.html에서 선택된 값들을 기반으로 검색 함수를 호출
 document.querySelector(".search-form").addEventListener("submit", function (e) {
