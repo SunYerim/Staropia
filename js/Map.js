@@ -17,7 +17,6 @@ var searchForm = document.getElementsByClassName("search-button")[0];
 searchForm?.addEventListener("click", function (e) {
   e.preventDefault();
   keywordSearch();
-});
 
 function getSaepjangNo (companyName, area) {
     var url = 'https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3&area=' + area + '&q=' + companyName + '&type=json';
@@ -43,6 +42,7 @@ var geocoder = new kakao.maps.services.Geocoder();
 
 var jsonData;
 
+<<<<<<< HEAD
 function getJsonData() {
     fetch("../json/parsing2.json")
     .then((res) => {
@@ -62,40 +62,63 @@ function searchOnJson() {
     hideMarkers();
     // markers 배열 초기화
     markers.splice(0, markers.length);
+=======
+function getSaepjangNo (companyName) {
+  var url = 'https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3&q=' + companyName + '&type=json';
 
-    const name = obj.map((v) => v.saeopjangNm);
-    const address = obj.map((v) => v.addr);
+  var data;
 
-    var indexes = [];
+  fetch(url)
+  .then(res => res.json())
+  .then(resJson => {
+    data = resJson;
+    console.log(data);
+  });
 
-    for (i = 0; i < obj.length; i++) {
-      if (name[i].includes(keyword)) {
-        indexes.push(i);
-      }
+  return data;
+}
+
+getSaepjangNo('카카오게임즈');
+
+// 카카오 맵의 장소 데이터를 활용하는 함수
+function keywordSearch() {
+  searchPlaces();
+>>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
+
+  // 키워드 검색을 요청
+  function searchPlaces() {
+    var keyword = document.getElementById("keyword").value;
+    console.log(keyword);
+    ps.keywordSearch(keyword, placesSearchCB);
+  }
+
+  // 키워드 검색 완료 시 호출되는 함수
+  function placesSearchCB(data, status, pagination) {
+    if (status === kakao.maps.services.Status.OK) {
+      displayPlaces(data);
     }
-
-    if (indexes.length === 0) {
+    else if (status === kakao.maps.services.Status.ZERO_RESULT) {
       alert("검색 결과가 없습니다.");
+      return;
     }
-
-    for (let i of indexes) {
-      var coords;
-      // 주소로 좌표를 검색
-      geocoder.addressSearch(address[i], function (result, status) {
-        // 정상적으로 검색이 완료됐으면
-        if (status === kakao.maps.services.Status.OK) {
-          coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-          // 결과값으로 받은 위치를 마커로 표시, addMarker에서 미리보기창도 생성
-          addMarker(coords, i);
-          // 지도의 중심을 결과값으로 받은 위치로 이동
-          map.setCenter(coords);
-        }
-      });
+    else {
+      alert("검색 도중 오류가 발생했습니다.");
     }
+  }
+
+  function displayPlaces(places) {
+    hideMarkers();
+    var bounds = new kakao.maps.LatLngBounds();
+    for (var i = 0; i < places.length; i++) {
+      var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
+      addMarker(places[i]);
+      bounds.extend(placePosition);
+    }
+    map.setBounds(bounds);
   }
 }
 
+<<<<<<< HEAD
 // index.html에서 선택된 값들을 기반으로 검색 함수를 호출
 document.querySelector(".search-form").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -166,25 +189,21 @@ function keywordSearch() {
     map.setBounds(bounds);
   }
 }
+=======
+>>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
 // 마커를 생성하는 함수
-function addMarker(position, index) {
+function addMarker(place) {
   const marker = new kakao.maps.Marker({
-    position: position,
+    map: map,
+    position: new kakao.maps.LatLng(place.y, place.x)
   });
-
-  // 마커를 지도에 표시한다
-  marker.setMap(map);
 
   markers.push(marker);
 
   // 마커에 click 이벤트를 등록한다
-  kakao.maps.event.addListener(
-    marker,
-    "mouseover",
-    showPreviewWindow(position, index)
-  );
+  kakao.maps.event.addListener(marker, "mouseover", showPreviewWindow(place));
   kakao.maps.event.addListener(marker, "mouseout", hidePreviewWindow());
-  kakao.maps.event.addListener(marker, "click", showOffcanvas(index));
+  // kakao.maps.event.addListener(marker, "click", showOffcanvas(index));
 }
 
 // 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수
@@ -206,7 +225,11 @@ function hideMarkers() {
 
 // Markers 배열을 초기화하는 함수
 function clearMarkers() {
+<<<<<<< HEAD
     markers.splice(0, markers.length);
+=======
+  markers.splice(0, markers.length);
+>>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
 }
 
 // 마커 위에 표시할 미리보기창, 유일 객체
@@ -220,16 +243,27 @@ var previewWindow = new kakao.maps.CustomOverlay({
 
 // 미리보기창을 표시하는 함수
 function showPreviewWindow(place) {
+<<<<<<< HEAD
     return function () {
     // 미리보기창 위치를 변경한다
     previewWindow.setPosition(new kakao.maps.LatLng(place.y, place.x));
+=======
+  return function () {
+    // 미리보기창 위치를 변경한다
+    previewWindow.setPosition(new kakao.maps.LatLng(place.y, place.x));
+
+>>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
     var saeopjangNo = getSaepjangNo(place.place_name);
     console.log(place.place_name);
     console.log(saeopjangNo);
     if(saeopjangNo === undefined) {
       saeopjangNo = "정보 없음";
     }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
     // 변경될 내용
     var content =
       '<div id="previewWindow">' +
@@ -240,7 +274,11 @@ function showPreviewWindow(place) {
           saeopjangNo +
         '</div><br>' +
       '</div>';
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
     // 미리보기창 내용을 변경한다.
     previewWindow.setContent(content);
     // 미리보기창을 맵 위에 표시한다.
@@ -252,7 +290,7 @@ function showPreviewWindow(place) {
 function hidePreviewWindow() {
   return function () {
     previewWindow.setMap(null);
-  };
+  }
 }
 
 // 고용업종명 ~ 상시인원 주소 배열
@@ -260,16 +298,73 @@ var contents = document.getElementsByClassName("content");
 
 // 상세 정보를 오프캔버스로 띄움
 function showOffcanvas(i) {
-  return function () {
-    var offcanvasElement = document.getElementById("offcanvas");
+  return function() {
+    var offcanvasElement = document.getElementById('offcanvas');
     var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
     offcanvas.show();
-    document.getElementById("name").innerHTML = jsonData[i]["saeopjangNm"];
-    document.getElementById("address").innerHTML = jsonData[i]["addr"];
-    document.getElementById("companyNumber").innerHTML =
-      "사업자등록번호: " + jsonData[i]["saeopjaDrno"];
-    contents[0].innerHTML = jsonData[i]["gyEopjongNm"];
-    contents[1].innerHTML = jsonData[i]["gyEopjongCd"];
-    contents[2].innerHTML = jsonData[i]["seongripDt"];
-  };
+    document.getElementById("name").innerHTML = jsonData[i]['saeopjangNm'];
+    document.getElementById("address").innerHTML = jsonData[i]['addr'];
+    document.getElementById("companyNumber").innerHTML = "사업자등록번호: " + jsonData[i]['saeopjaDrno'];
+    contents[0].innerHTML = jsonData[i]['gyEopjongNm'];
+    contents[1].innerHTML = jsonData[i]['gyEopjongCd'];
+    contents[4].innerHTML = jsonData[i]['seongripDt'];
+  }
 }
+
+
+// Legacy
+
+// function getJsonData() {
+//   fetch("../json/parsing2.json")
+//     .then((res) => {
+//       return res.json();
+//     })
+//     .then((obj) => {
+//       jsonData = obj;
+//     })
+// }
+
+// getJsonData();
+
+// // 이름(keyword)으로 json 인덱스를 찾는 함수
+// function searchOnJson() {
+//   var keyword = document.getElementById("keyword").value;
+//   List(jsonData, keyword);
+//   // 이름, 주소를 받아와 마커와 미리보기창을 생성하는 함수
+//   function List(obj, keyword) {
+//     hideMarkers();
+//     // markers 배열 초기화
+//     clearMarkers();
+
+//     const name = obj.map(v => v.saeopjangNm);    
+//     const address = obj.map(v => v.addr);
+
+//     var indexes = [];
+
+//     for (i = 0; i < obj.length; i++) {
+//         if (name[i].includes(keyword)) {
+//             indexes.push(i);
+//         }
+//     }
+
+//     if(indexes.length === 0) {
+//       alert("검색 결과가 없습니다.");
+//     }
+
+//     for(let i of indexes) {  
+//       var coords;
+//       // 주소로 좌표를 검색
+//       geocoder.addressSearch(address[i], function (result, status) {
+//         // 정상적으로 검색이 완료됐으면 
+//         if (status === kakao.maps.services.Status.OK) {
+//           coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+      
+//           // 결과값으로 받은 위치를 마커로 표시, addMarker에서 미리보기창도 생성
+//           addMarker(coords, i);
+//           // 지도의 중심을 결과값으로 받은 위치로 이동
+//           map.setCenter(coords);
+//         }
+//       }); 
+//     }
+//   }
+// }
