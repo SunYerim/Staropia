@@ -35,6 +35,7 @@ function getJsonData() {
 }
 
 getJsonData();
+3;
 
 // 이름(keyword)으로 json 인덱스를 찾는 함수
 function searchOnJson() {
