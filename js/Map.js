@@ -16,8 +16,27 @@ var ps = new kakao.maps.services.Places();
 var searchForm = document.getElementsByClassName("search-button")[0];
 searchForm?.addEventListener("click", function (e) {
   e.preventDefault();
-  searchOnJson();
+  keywordSearch();
 });
+
+function getSaepjangNo (companyName, area) {
+    var url = 'https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3&area=' + area + '&q=' + companyName + '&type=json';
+    if(area === 'all') {
+        url = 'https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3&q=' + companyName + '&type=json';
+    }
+    var data;
+  
+    fetch(url)
+    .then(res => res.json())
+    .then(resJson => {
+      data = resJson;
+      console.log(data);
+    });
+  
+    return data;
+}
+
+getSaepjangNo('카카오', '서울');
 
 // 주소 - 좌표 변환 객체 생성
 var geocoder = new kakao.maps.services.Geocoder();
@@ -25,16 +44,14 @@ var geocoder = new kakao.maps.services.Geocoder();
 var jsonData;
 
 function getJsonData() {
-  fetch("../json/parsing2.json")
+    fetch("../json/parsing2.json")
     .then((res) => {
-      return res.json();
+        return res.json();
     })
     .then((obj) => {
-      jsonData = obj;
+        jsonData = obj;
     });
 }
-
-getJsonData();
 
 // 이름(keyword)으로 json 인덱스를 찾는 함수
 function searchOnJson() {
@@ -100,52 +117,55 @@ function search() {
   };
 
   // 검색 요청
-  // var ps = new Kakao.maps.services.Places();
-  // ps.keywordSearch("검색어", function (data, status, pagination) {
-  //   if (status === kakao.maps.services.Status.OK) {
-  //     for (var i = 0; i < data.length; i++) {
-  //       var place = data[i];
-  //       var marker = new kakao.maps.Marker({
-  //         position: new kakao.maps.LatLng(place.y, place.x),
-  //         map: map,
-  //       });
-  //     }
-  //   }
-  // });
+  var ps = new Kakao.maps.services.Places();
+  ps.keywordSearch("검색어", function (data, status, pagination) {
+    if (status === kakao.maps.services.Status.OK) {
+      for (var i = 0; i < data.length; i++) {
+        var place = data[i];
+        var marker = new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(place.y, place.x),
+          map: map,
+        });
+      }
+    }
+  });
 }
 
 // 카카오 맵의 장소 데이터를 활용하는 함수
-// function keywordSearch() {
-//   searchPlaces();
-
-//   // 키워드 검색을 요청
-//   function searchPlaces() {
-//     var keyword = document.getElementById("keyword").name;
-//     ps.keywordSearch(keyword, placesSearchCB);
-//   }
-
-//   // 키워드 검색 완료 시 호출되는 함수
-//   function placesSearchCB(data, status, pagination) {
-//     if (status === kakao.maps.services.Status.OK) {
-//       displayPlaces(data);
-//     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-//       alert("No Result");
-//       return;
-//     }
-//   }
-
-//   function displayPlaces(places) {
-//     hideMarkers();
-//     for (var i = 0; i < places.length; i++) {
-//       var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
-//         marker = addMarker(placePosition, i);
-
-//       bounds.extend(placePosition);
-//     }
-//     map.setBounds(bounds);
-//   }
-// }
-
+function keywordSearch() {
+    searchPlaces();
+  
+    // 키워드 검색을 요청
+    function searchPlaces() {
+      var keyword = document.getElementById("keyword").value;
+      console.log(keyword);
+      ps.keywordSearch(keyword, placesSearchCB);
+    }
+  
+    // 키워드 검색 완료 시 호출되는 함수
+    function placesSearchCB(data, status, pagination) {
+      if (status === kakao.maps.services.Status.OK) {
+        displayPlaces(data);
+      }
+      else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+        alert("검색 결과가 없습니다.");
+        return;
+      }
+      else {
+        alert("검색 도중 오류가 발생했습니다.");
+      }
+    }
+    function displayPlaces(places) {
+        hideMarkers();
+        var bounds = new kakao.maps.LatLngBounds();
+        for (var i = 0; i < places.length; i++) {
+        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
+        addMarker(places[i]);
+        bounds.extend(placePosition);
+    }
+    map.setBounds(bounds);
+  }
+}
 // 마커를 생성하는 함수
 function addMarker(position, index) {
   const marker = new kakao.maps.Marker({
@@ -184,6 +204,11 @@ function hideMarkers() {
   setMarkers(null);
 }
 
+// Markers 배열을 초기화하는 함수
+function clearMarkers() {
+    markers.splice(0, markers.length);
+}
+
 // 마커 위에 표시할 미리보기창, 유일 객체
 var previewWindow = new kakao.maps.CustomOverlay({
   position: new kakao.maps.LatLng(35.13499, 129.1039),
@@ -194,31 +219,35 @@ var previewWindow = new kakao.maps.CustomOverlay({
 });
 
 // 미리보기창을 표시하는 함수
-function showPreviewWindow(position, i) {
-  return function () {
+function showPreviewWindow(place) {
+    return function () {
     // 미리보기창 위치를 변경한다
-    previewWindow.setPosition(position);
-
+    previewWindow.setPosition(new kakao.maps.LatLng(place.y, place.x));
+    var saeopjangNo = getSaepjangNo(place.place_name);
+    console.log(place.place_name);
+    console.log(saeopjangNo);
+    if(saeopjangNo === undefined) {
+      saeopjangNo = "정보 없음";
+    }
+  
     // 변경될 내용
     var content =
       '<div id="previewWindow">' +
-      '<div id="previewName">' +
-      jsonData[i]["saeopjangNm"] +
-      "</div>" +
-      '<div id="previewAddress">' +
-      jsonData[i].addr +
-      "</div><br>" +
-      "</div>";
-
+        '<div id="previewName">' +
+          place.place_name +
+        '</div>' +
+        '<div id="previewAddress">' +
+          saeopjangNo +
+        '</div><br>' +
+      '</div>';
+  
     // 미리보기창 내용을 변경한다.
     previewWindow.setContent(content);
     // 미리보기창을 맵 위에 표시한다.
     previewWindow.setMap(map);
-
-    // 로컬 저장소에 name을 임시저장한다.
-    localStorage.setItem("name", name);
   };
 }
+
 
 function hidePreviewWindow() {
   return function () {
