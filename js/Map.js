@@ -17,6 +17,7 @@ var searchForm = document.getElementsByClassName("search-button")[0];
 searchForm?.addEventListener("click", function (e) {
   e.preventDefault();
   keywordSearch();
+});
 
 function getSaepjangNo (companyName, area) {
     var url = 'https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3&area=' + area + '&q=' + companyName + '&type=json';
@@ -42,7 +43,6 @@ var geocoder = new kakao.maps.services.Geocoder();
 
 var jsonData;
 
-<<<<<<< HEAD
 function getJsonData() {
     fetch("../json/parsing2.json")
     .then((res) => {
@@ -62,28 +62,6 @@ function searchOnJson() {
     hideMarkers();
     // markers 배열 초기화
     markers.splice(0, markers.length);
-=======
-function getSaepjangNo (companyName) {
-  var url = 'https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3&q=' + companyName + '&type=json';
-
-  var data;
-
-  fetch(url)
-  .then(res => res.json())
-  .then(resJson => {
-    data = resJson;
-    console.log(data);
-  });
-
-  return data;
-}
-
-getSaepjangNo('카카오게임즈');
-
-// 카카오 맵의 장소 데이터를 활용하는 함수
-function keywordSearch() {
-  searchPlaces();
->>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
 
   // 키워드 검색을 요청
   function searchPlaces() {
@@ -118,7 +96,6 @@ function keywordSearch() {
   }
 }
 
-<<<<<<< HEAD
 // index.html에서 선택된 값들을 기반으로 검색 함수를 호출
 document.querySelector(".search-form").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -189,8 +166,6 @@ function keywordSearch() {
     map.setBounds(bounds);
   }
 }
-=======
->>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
 // 마커를 생성하는 함수
 function addMarker(place) {
   const marker = new kakao.maps.Marker({
@@ -225,11 +200,7 @@ function hideMarkers() {
 
 // Markers 배열을 초기화하는 함수
 function clearMarkers() {
-<<<<<<< HEAD
     markers.splice(0, markers.length);
-=======
-  markers.splice(0, markers.length);
->>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
 }
 
 // 마커 위에 표시할 미리보기창, 유일 객체
@@ -243,27 +214,16 @@ var previewWindow = new kakao.maps.CustomOverlay({
 
 // 미리보기창을 표시하는 함수
 function showPreviewWindow(place) {
-<<<<<<< HEAD
     return function () {
     // 미리보기창 위치를 변경한다
     previewWindow.setPosition(new kakao.maps.LatLng(place.y, place.x));
-=======
-  return function () {
-    // 미리보기창 위치를 변경한다
-    previewWindow.setPosition(new kakao.maps.LatLng(place.y, place.x));
-
->>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
     var saeopjangNo = getSaepjangNo(place.place_name);
     console.log(place.place_name);
     console.log(saeopjangNo);
     if(saeopjangNo === undefined) {
       saeopjangNo = "정보 없음";
     }
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
     // 변경될 내용
     var content =
       '<div id="previewWindow">' +
@@ -274,11 +234,6 @@ function showPreviewWindow(place) {
           saeopjangNo +
         '</div><br>' +
       '</div>';
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> 04a054e29ba27c2ac2d9205f03f3ac7964c5640c
     // 미리보기창 내용을 변경한다.
     previewWindow.setContent(content);
     // 미리보기창을 맵 위에 표시한다.
