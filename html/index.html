@@ -41,10 +41,20 @@
       </ul>
     </nav>
     <!-- 상세페이지 - 오프캔버스-->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvas"
+      aria-labelledby="offcanvasLabel"
+    >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="offcanvas-body">
         <div id="container">
@@ -53,7 +63,7 @@
             <li><div id="address">주소</div></li>
             <li><div id="companyNumber">사업자등록번호</div></li>
           </ul>
-          <br><br>
+          <br /><br />
           <ul class="multiColumn">
             <ul>
               <li><div class="header">고용업종명</div></li>
@@ -93,75 +103,44 @@
       <script type="text/javascript" src="../js/Map.js"></script>
       <form class="search-form">
         <!-- 지역  -->
-        <div class="dropdown">
-          <button
-            class="btn btn-primary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            지역
-          </button>
-          <ul class="dropdown-menu">
-            <li>
-              <button class="dropdown-item" type="button">부산</button>
-            </li>
-            <li>
-              <button class="dropdown-item" type="button">경남</button>
-            </li>
-            <li>
-              <button class="dropdown-item" type="button">서울</button>
-            </li>
-            <li>
-              <button class="dropdown-item" type="button">경북</button>
-            </li>
-          </ul>
-        </div>
-        <!-- 근로자 수 -->
-        <div class="dropdown">
-          <button
-            class="btn btn-primary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            근로자수
-          </button>
+        <select
+          class="form-select"
+          aria-label=".form-select-lg example"
+          style="width: 100px"
+          id="region"
+        >
+          <option selected>지역</option>
+          <option value="1">부산</option>
+          <option value="2">경남</option>
+          <option value="3">경북</option>
+          <option value="4">서울</option>
+          <option value="5">경기</option>
+        </select>
+        <!--근로자수-->
+        <select
+          class="form-select"
+          aria-label=".form-select-lg example"
+          style="width: 120px"
+          id="workerCount"
+        >
+          <option selected>근로자수</option>
+          <option value="1">5인 이상 50인 미만</option>
+          <option value="2">100인 미만</option>
+          <option value="3">100인 이상</option>
+        </select>
 
-          <ul class="dropdown-menu">
-            <li>
-              <button class="dropdown-item" type="button">5인 미만</button>
-            </li>
-            <li>
-              <button class="dropdown-item" type="button">50인 미만</button>
-            </li>
-            <li>
-              <button class="dropdown-item" type="button">100인 미만</button>
-            </li>
-          </ul>
-        </div>
         <!-- 업종 -->
-        <div class="dropdown">
-          <button
-            class="btn btn-primary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            업종
-          </button>
-          <ul class="dropdown-menu">
-            <li>
-              <button class="dropdown-item" type="button">어쩌구</button>
-            </li>
-            <li>
-              <button class="dropdown-item" type="button">저쩌구</button>
-            </li>
-            <li>
-              <button class="dropdown-item" type="button">업종입니다</button>
-            </li>
-          </ul>
-        </div>
+        <select
+          class="form-select"
+          aria-label=".form-select-lg example"
+          style="width: 100px"
+          id="industryCode"
+        >
+          <option selected>업종</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
 
         <input
           type="search"
@@ -169,6 +148,7 @@
           id="keyword"
           placeholder="Search"
           class="search-input"
+          style="width: 700px"
         />
         <button type="submit" class="search-button">
           <img src="../images/search.png" />

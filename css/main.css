@@ -14,7 +14,7 @@ footer {
   text-align: center;
   vertical-align: middle;
   color: white;
-  background-color: #7fc8a9;
+  background-color: #301b3f;
   padding: 5px;
 }
 
@@ -22,7 +22,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #7fc8a9;
+  background-color: #301b3f;
   padding: 8px 12px;
 }
 
@@ -115,6 +115,10 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+}
+
+.form-select {
+  width: 100px;
 }
 
 #previewWindow {
