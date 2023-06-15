@@ -7,19 +7,19 @@
 }
 
 #name {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: bold;
 }
 
 #address {
     color: gray;
-    font-size: 18px;
+    font-size: 15px;
     margin-top: 12px;
 }
 
 #companyNumber {
     color: black;
-    font-size: 18px;
+    font-size: 15px;
     margin-top: 6px;
 }
 
@@ -42,11 +42,11 @@ ul, .info {
 
 div.header {
     width: auto;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 div.content {
-    font-size: 18px;
+    font-size: 15px;
     margin: 6px 0px;
 }
