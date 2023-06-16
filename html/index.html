@@ -28,21 +28,12 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <header>
     <nav class="navbar">
       <div class="navbar__logo">
         <!-- 현재 fontawesome 깨져보이는 현상때문에 임시로 solid-->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="currentColor"
-          class="bi bi-map"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="yellow" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
         </svg>
         <a href="index.html">Staropia</a>
       </div>
@@ -53,6 +44,7 @@
         <!-- <li><a href="">산재 지정병원 목록</a></li> -->
       </ul>
     </nav>
+  </header>
     <!-- 상세페이지 - 오프캔버스-->
     <div
       class="offcanvas offcanvas-start"
@@ -189,10 +181,11 @@
       </div>
     </div>
     <!-- 지도 -->
-    <div id="map"></div>
+    <div id="map" class="map"></div>
     <div class="search-container">
       <script type="text/javascript" src="../js/Map.js"></script>
       <form class="search-form">
+        <div class="select-container">
         <!-- 지역  -->
         <select
           class="form-select"
@@ -207,6 +200,8 @@
           <option value="서울">서울</option>
           <option value="경기">경기</option>
         </select>
+      </div>
+      <div class="select-container">
         <!--근로자수-->
         <select
           class="form-select"
@@ -215,10 +210,11 @@
           id="workerCount"
         >
           <option selected>근로자수</option>
-          <option value="1">5인 이상 50인 미만</option>
-          <option value="2">100인 미만</option>
-          <option value="3">100인 이상</option>
+          <option value="1">5인 미만</option>
+          <option value="2">5인 이상</option>
+          
         </select>
+      </div>
 
         <!-- 업종 -->
         <!-- <select
@@ -247,6 +243,7 @@
       </form>
     </div>
     <script src="../js/Map.js"></script>
-    <footer>copyright staropia</footer>
+    <footer><p>&copy; 2023 Staropia. All rights reserved.</p></footer>
+  </body>
   </body>
 </html>
