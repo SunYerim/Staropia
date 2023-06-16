@@ -217,13 +217,16 @@ function showOffcanvas(gyData, sjData) {
 		var sjEopjongCode = sjData.getElementsByTagName('sjEopjongCd')[0].childNodes[0].textContent;
     var sjSeongripDate = sjData.getElementsByTagName('seongripDt')[0].childNodes[0].textContent;
     
-
+    //좌측 오프캔버스
     var offcanvasElement = document.getElementById('offcanvas');
 		var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+    // 우측 오프캔버스
     offcanvasElement = document.getElementById('offcanvas-right');
 		var offcanvas_right = new bootstrap.Offcanvas(offcanvasElement);
+    // 열기
 		offcanvas.show();
 		offcanvas_right.show();
+    // 좌측 캔버스 데이터 변경
 		document.getElementById("name").innerHTML = companyName;
 		document.getElementById("address").innerHTML = address;
 		document.getElementById("companyNumber").innerHTML = "사업자등록번호: " + companyNumber;
@@ -234,7 +237,25 @@ function showOffcanvas(gyData, sjData) {
     contents[4].innerHTML = sjEopjongName;
     contents[5].innerHTML = sjEopjongCode;
 		contents[6].innerHTML = sjSeongripDate.substr(0, 4) + '년 ' + sjSeongripDate.substr(4, 2) + '월 ' + sjSeongripDate.substr(6, 2) + '일';
-		
+		// 우측 캔버스 pdf 페이지 변경
+    var pageNum = 4;
+    var pageNum2 = 5;
+    if(companyName === '늘올주점') {
+      pageNum = 10;
+      pageNum2 = 11;
+    }
+    console.log(pageNum);
+		var sanjaeFrame = document.getElementById("sanjaeManual");
+    var anjeonFrame = document.getElementById("anjeonGuide");
+    sanjaeFrame.src = "";
+    anjeonFrame.src = "";
+    setTimeout(function() {
+      sanjaeFrame.src = '../notes/산재예방 매뉴얼 [최종].pdf#page=' + pageNum;
+      console.log(sanjaeFrame.getAttribute('src'));
+      anjeonFrame.setAttribute('src', '../notes/소규모 사업장 안전보건교육 가이드.pdf#page=' + pageNum2);
+      console.log(anjeonFrame.getAttribute('src'));
+    }, 100);
+
   }
 }
 
