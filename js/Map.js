@@ -27,7 +27,8 @@ document.querySelector(".search-form").addEventListener("submit", function (e) {
 function search() {
   // 선택된 값들을 가져온다.
   var region = document.querySelector("#region").value;
-  //var workerCount = doucument.querySelector("#workerCount").value;
+  console.log(region);
+  // var workerCount = doucument.querySelector("#workerCount").value;
 
   // 검색창에 입력된 키워드를 가져온다.
   var keyword = document.getElementById("keyword").value;
@@ -88,7 +89,7 @@ function addMarker(place, area) {
 		xhr.open('GET', url + queryParams + opa1);
 		xhr.onreadystatechange = function () {
 				if (this.readyState == 4) {
-					// console.log('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+					console.log('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
           // 산재 데이터를 받아온다.
           var sjData = xhr.responseXML;
 
@@ -219,7 +220,10 @@ function showOffcanvas(gyData, sjData) {
 
     var offcanvasElement = document.getElementById('offcanvas');
 		var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+    offcanvasElement = document.getElementById('offcanvas-right');
+		var offcanvas_right = new bootstrap.Offcanvas(offcanvasElement);
 		offcanvas.show();
+		offcanvas_right.show();
 		document.getElementById("name").innerHTML = companyName;
 		document.getElementById("address").innerHTML = address;
 		document.getElementById("companyNumber").innerHTML = "사업자등록번호: " + companyNumber;
