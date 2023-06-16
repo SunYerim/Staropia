@@ -117,8 +117,8 @@
           </ul>
           <hr>
           <ul>
-            <div class="header">가장 많이 발생한 산재</div><br>
-            <ul class="multiColumn">
+            <div class="header" id="injuryHeader">산재 발생 빈도</div><br>
+            <ul class="multiColumn injuryTag">
               <ul class="sanjae">
                 <li><div class="header-sj">1위</div></li>
               </ul>
@@ -126,7 +126,7 @@
                 <li><div class="content-sj">병명</div></li>
               </ul>
             </ul>
-            <ul class="multiColumn">
+            <ul class="multiColumn injuryTag">
               <ul class="sanjae">
                 <li><div class="header-sj">2위</div></li>
               </ul>
@@ -134,7 +134,7 @@
                 <li><div class="content-sj">병명</div></li>
               </ul>
             </ul>
-            <ul class="multiColumn">
+            <ul class="multiColumn injuryTag">
               <ul class="sanjae">
                 <li><div class="header-sj">3위</div></li>
               </ul>
@@ -148,7 +148,7 @@
     </div>
     <!-- 우측 오프캔버스-->
     <div
-      class="offcanvas offcanvas-end show"
+      class="offcanvas offcanvas-end"
       tabindex="-1"
       id="offcanvas-right"
       aria-labelledby="offcanvasLabel"
@@ -167,7 +167,7 @@
         <div id="container">
           <!-- 산재예방 매뉴얼 -->
           <div class="header-right">산재예방 매뉴얼</div>
-          <iframe id="sanjaeManual" src=""></iframe>
+          <iframe id="sanjaeManual" src="../notes/산재예방 매뉴얼 [최종].pdf"></iframe>
           <div class="newWindowButton" onclick="window.open('../notes/산재예방 매뉴얼 [최종].pdf');">
             <img src="../images/search.png">
             크게 보기
@@ -175,7 +175,7 @@
           <br><br><br>
           <!-- 안전보건교육 매뉴얼 -->
           <div class="header-right">안전보건교육 가이드</div>
-          <iframe id="anjeonGuide" src=""></iframe>
+          <iframe id="anjeonGuide" src="../notes/소규모 사업장 안전보건교육 가이드.pdf"></iframe>
           <div class="newWindowButton" onclick="window.open('../notes/소규모 사업장 안전보건교육 가이드.pdf');">
             <img src="../images/search.png">
             크게 보기
@@ -192,7 +192,9 @@
     <!-- 지도 -->
     <div id="map" class="map"></div>
     <div class="search-container">
-      <script type="text/javascript" src="../js/Map.js"></script>
+      <script type="module" src="../js/injuryCode.js"></script>
+      <script type="module" src="../js/injuryPerEopjong.js"></script>
+      <script type="module" src="../js/Map.js"></script>
       <form class="search-form">
         <div class="select-container">
         <!-- 지역  -->
