@@ -10,32 +10,42 @@
       src="https://kit.fontawesome.com/698d84a497.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+
+      .navbar > a,
+      footer {
+        font-family: "Roboto Slab", serif;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar__logo">
-        <!-- 현재 fontawesome 깨져보이는 현상때문에 임시로 solid-->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          fill="yellow"
-          class="bi bi-geo-alt-fill"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
-          />
-        </svg>
-        <a href="index.html">Staropia</a>
-      </div>
+    <header>
+      <nav class="navbar">
+        <div class="navbar__logo">
+          <!-- 현재 fontawesome 깨져보이는 현상때문에 임시로 solid-->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="yellow"
+            class="bi bi-geo-alt-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+            />
+          </svg>
+          <a href="ServiceInfo.html">Staropia</a>
+        </div>
 
-      <ul class="navbar__menu">
-        <li><a href="ServiceInfo.html">서비스 소개</a></li>
-        <li><a href="StartupInfo.html">창업에 필요한 정보</a></li>
-        <!-- <li><a href="">산재 지정병원 목록</a></li> -->
-      </ul>
-    </nav>
+        <ul class="navbar__menu">
+          <li><a href="ServiceInfo.html">서비스 소개</a></li>
+          <li><a href="StartupInfo.html">창업에 필요한 정보</a></li>
+          <!-- <li><a href="">산재 지정병원 목록</a></li> -->
+        </ul>
+      </nav>
+    </header>
 
     <div class="info-page">
       <div class="left-page">
@@ -130,6 +140,6 @@
       </div>
     </div>
 
-    <footer>copyright staropia</footer>
+    <footer><p>&copy; 2023 Staropia. All rights reserved.</p></footer>
   </body>
 </html>

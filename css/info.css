@@ -86,3 +86,76 @@
   border: none;
   border-radius: 20px;
 }
+
+header {
+  background-color: #323232;
+  padding: 8px 12px;
+}
+
+footer {
+  background-color: #323232;
+  font-weight: 600;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px; /* 높이 조정 */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #323232;
+  padding: 8px 12px;
+}
+
+.navbar__logo {
+  font-size: 24px;
+  color: white;
+  align-items: center;
+}
+/* 
+.navbar__logo i {
+  color: red;
+  margin-left: 30px;
+} */
+
+.navbar__logo a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
+.navbar__menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
+.navbar__menu li:hover {
+  background-color: yellow;
+  border-radius: 5px;
+}
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.navbar__menu li {
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  display: flex;
+  /* margin-top: 10px; */
+}
