@@ -59,6 +59,7 @@
       tabindex="-1"
       id="offcanvas"
       aria-labelledby="offcanvasLabel"
+      style="width: 25%; min-width: 400px;"
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
@@ -114,11 +115,76 @@
             </ul>
           </ul>
           <hr>
-
-
-
-
-          
+          <ul>
+            <div class="header">가장 많이 발생한 산재</div><br>
+            <ul class="multiColumn">
+              <ul class="sanjae">
+                <li><div class="header-sj">1위</div></li>
+              </ul>
+              <ul>
+                <li><div class="content-sj">병명</div></li>
+              </ul>
+            </ul>
+            <ul class="multiColumn">
+              <ul class="sanjae">
+                <li><div class="header-sj">2위</div></li>
+              </ul>
+              <ul>
+                <li><div class="content-sj">병명</div></li>
+              </ul>
+            </ul>
+            <ul class="multiColumn">
+              <ul class="sanjae">
+                <li><div class="header-sj">3위</div></li>
+              </ul>
+              <ul>
+                <li><div class="content-sj">병명</div></li>
+              </ul>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 우측 오프캔버스-->
+    <div
+      class="offcanvas offcanvas-end show"
+      tabindex="-1"
+      id="offcanvas-right"
+      aria-labelledby="offcanvasLabel"
+      style="width: 40%; min-width: 400px;"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="container">
+          <!-- 산재예방 매뉴얼 -->
+          <div class="header-right">산재예방 매뉴얼</div>
+          <iframe id="sanjaeManual" src=""></iframe>
+          <div class="newWindowButton" onclick="window.open('../notes/산재예방 매뉴얼 [최종].pdf');">
+            <img src="../images/search.png">
+            크게 보기
+          </div>
+          <br><br><br>
+          <!-- 안전보건교육 매뉴얼 -->
+          <div class="header-right">안전보건교육 가이드</div>
+          <iframe id="anjeonGuide" src=""></iframe>
+          <div class="newWindowButton" onclick="window.open('../notes/소규모 사업장 안전보건교육 가이드.pdf');">
+            <img src="../images/search.png">
+            크게 보기
+          </div>
+          <br><br><br>
+          <!-- 복지리 -->
+          <div class="header-right">이 회사의 복지가 궁금하다면?</div>
+          <div id="bokziri" onclick="window.open('https://bokziri.com');">
+            <img id="bokziri-icon" src="../images/bokziri icon.jpeg"></img>&nbsp;&nbsp;Bokziri.com
+          </div>
         </div>
       </div>
     </div>
@@ -135,11 +201,11 @@
           id="region"
         >
           <option selected>지역</option>
-          <option value="1">부산</option>
-          <option value="2">경남</option>
-          <option value="3">경북</option>
-          <option value="4">서울</option>
-          <option value="5">경기</option>
+          <option value="부산">부산</option>
+          <option value="경남">경남</option>
+          <option value="경북">경북</option>
+          <option value="서울">서울</option>
+          <option value="경기">경기</option>
         </select>
         <!--근로자수-->
         <select
