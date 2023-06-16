@@ -120,7 +120,6 @@ function addMarker(place, area) {
               "nBody: " +
               this.responseText
           );
-
           // 산재 데이터를 받아온다.
           var sjData = xhr.responseXML;
 
@@ -265,7 +264,6 @@ function showOffcanvas(gyData, sjData) {
     var gySeongripDate =
       gyData.getElementsByTagName("seongripDt")[0].childNodes[0].textContent;
     // 산재 데이터
-
     var sjEopjongName =
       sjData.getElementsByTagName("sjEopjongNm")[0].childNodes[0].textContent;
     var sjEopjongCode =
