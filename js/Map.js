@@ -1,3 +1,7 @@
+// 업종별 산재 빈도, 상병코드 map 객체를 불러옴
+import injuryPerEopjong from './injuryPerEopjong.js';
+import injuryCode from './injuryCode.js';
+
 var mapContainer = document.getElementById("map"), // 지도를 표시할 div
   mapOption = {
     center: new kakao.maps.LatLng(35.13417, 129.11397), // 지도의 중심좌표
@@ -99,12 +103,12 @@ function addMarker(place, area) {
         encodeURIComponent("v_saeopjaDrno") +
         "=" +
         encodeURIComponent(saeopjangNo); /**/
-      opa1 =
+      var opa1 =
         "&" +
         encodeURIComponent("opaBoheomFg") +
         "=" +
         encodeURIComponent("1"); /**/
-      opa2 =
+      var opa2 =
         "&" +
         encodeURIComponent("opaBoheomFg") +
         "=" +
@@ -114,11 +118,11 @@ function addMarker(place, area) {
         if (this.readyState == 4) {
           console.log(
             "Status: " +
-              this.status +
-              "nHeaders: " +
-              JSON.stringify(this.getAllResponseHeaders()) +
-              "nBody: " +
-              this.responseText
+            this.status +
+            "nHeaders: " +
+            JSON.stringify(this.getAllResponseHeaders()) +
+            "nBody: " +
+            this.responseText
           );
           // 산재 데이터를 받아온다.
           var sjData = xhr.responseXML;
@@ -205,7 +209,7 @@ function showPreviewWindow(place, data) {
   return function () {
     // 미리보기창 위치를 변경한다
     previewWindow.setPosition(new kakao.maps.LatLng(place.y, place.x));
-
+    console.log(data);
     // 사업장명을 받아와, '주식회사'나 '(주)'를 제거한다.
     var companyName =
       data.getElementsByTagName("saeopjangNm")[0].childNodes[0].textContent;
@@ -304,6 +308,34 @@ function showOffcanvas(gyData, sjData) {
       "월 " +
       sjSeongripDate.substr(6, 2) +
       "일";
+    // 산재 빈도 리스트 태그, 내용이 들어갈 태그, 해당 업종 데이터를 불러온다.
+    var injuryTagsList = document.getElementsByClassName('injuryTag');
+    var injuryTags = document.getElementsByClassName('content-sj');
+    var injuryData = injuryPerEopjong.get(sjEopjongName);
+    console.log(injuryData);
+    // 병명이 없을 때까지 내용을 변경하고 보이게 한다.
+    let i = 0;
+    // 데이터가 아예 없으면 연산하지 않음
+    if(injuryData !== undefined) {
+      document.getElementById("injuryHeader").style.visibility = 'visible';
+      // 모든 키 값을 순서대로 조회
+      for(const key of injuryData.keys()) {
+        if(i === injuryData.size) {
+          break;
+        }
+        injuryTags[i].innerHTML = injuryCode.get(key);
+        injuryTagsList[i].style.visibility = 'visible';
+        i++;
+      }
+    }
+    else{
+      document.getElementById("injuryHeader").style.visibility = 'hidden';
+    }
+    // 병명이 작성되지 않은 태그들은 숨긴다
+    for(; i < 3; i++) {
+      injuryTagsList[i].style.visibility = 'hidden';
+      console.log(i + '번째 숨겨짐');
+    }
     // 우측 캔버스 pdf 페이지 변경
     var pageNum = 4;
     var pageNum2 = 5;
@@ -318,12 +350,7 @@ function showOffcanvas(gyData, sjData) {
     anjeonFrame.src = "";
     setTimeout(function () {
       sanjaeFrame.src = "../notes/산재예방 매뉴얼 [최종].pdf#page=" + pageNum;
-      console.log(sanjaeFrame.getAttribute("src"));
-      anjeonFrame.setAttribute(
-        "src",
-        "../notes/소규모 사업장 안전보건교육 가이드.pdf#page=" + pageNum2
-      );
-      console.log(anjeonFrame.getAttribute("src"));
+      anjeonFrame.src = "../notes/소규모 사업장 안전보건교육 가이드.pdf#page=" + pageNum2;
     }, 100);
   };
 }

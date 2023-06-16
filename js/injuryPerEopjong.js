@@ -1239,5 +1239,7 @@ const injuryPerEopjong = new Map([
 		['S8260', '1'],
 		['S611', '1'],
 		['S6700', '1'],
-	])],
+	])]
 ]);
+
+export default injuryPerEopjong;

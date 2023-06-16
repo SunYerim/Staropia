@@ -108,8 +108,8 @@
           </ul>
           <hr>
           <ul>
-            <div class="header">가장 많이 발생한 산재</div><br>
-            <ul class="multiColumn">
+            <div class="header" id="injuryHeader">산재 발생 빈도</div><br>
+            <ul class="multiColumn injuryTag">
               <ul class="sanjae">
                 <li><div class="header-sj">1위</div></li>
               </ul>
@@ -117,7 +117,7 @@
                 <li><div class="content-sj">병명</div></li>
               </ul>
             </ul>
-            <ul class="multiColumn">
+            <ul class="multiColumn injuryTag">
               <ul class="sanjae">
                 <li><div class="header-sj">2위</div></li>
               </ul>
@@ -125,7 +125,7 @@
                 <li><div class="content-sj">병명</div></li>
               </ul>
             </ul>
-            <ul class="multiColumn">
+            <ul class="multiColumn injuryTag">
               <ul class="sanjae">
                 <li><div class="header-sj">3위</div></li>
               </ul>
@@ -183,7 +183,9 @@
     <!-- 지도 -->
     <div id="map" class="map"></div>
     <div class="search-container">
-      <script type="text/javascript" src="../js/Map.js"></script>
+      <script type="module" src="../js/injuryCode.js"></script>
+      <script type="module" src="../js/injuryPerEopjong.js"></script>
+      <script type="module" src="../js/Map.js"></script>
       <form class="search-form">
         <div class="select-container">
         <!-- 지역  -->

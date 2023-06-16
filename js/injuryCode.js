@@ -47798,3 +47798,5 @@ const injuryCode = new Map([
     ['Z998', '기타 기능성 기계 및 장치에 의존'],
     ['Z999', '상세불명의 기능성 기계 및 장치에 의존']
 ]);
+
+export default injuryCode;
