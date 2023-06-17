@@ -1,15 +1,13 @@
 @font-face {
-    font-family: "BejuryuFont";
-    src: url("/assets/fonts/BejuryuFont.ttf");
-  }
-
+  font-family: "BejuryuFont";
+  src: url("/assets/fonts/BejuryuFont.ttf");
+}
 .tab {
   float: left;
   background-color: #f1f1f1;
   width: 15%;
   height: calc(93% - 60px);
 }
-
 .tab button {
   display: block;
   background-color: inherit;
@@ -24,17 +22,14 @@
   font-size: 15px;
   font-weight: bold;
 }
-
 /* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #ddd;
 }
-
 /* Create an active/current "tab button" class */
 .tab button.active {
   background-color: #ccc;
 }
-
 /* Style the tab content */
 .tabcontent {
   float: auto;
@@ -96,4 +91,3 @@ table td a:hover {
 
 .link-button ul li.button-04 {background-color: #C8B6E2;}
 .link-button ul li.button-04:hover {background-color: #A8A4CE;}
-
