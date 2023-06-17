@@ -1,13 +1,24 @@
-@font-face {
-  font-family: "BejuryuFont";
-  src: url("/assets/fonts/BejuryuFont.ttf");
-}
 .tab {
   float: left;
   background-color: #f1f1f1;
   width: 15%;
-  height: calc(93% - 60px);
+  height: 100%;
 }
+
+header {
+  background-color: #323232;
+  padding: 8px 12px;
+}
+
+html,
+body,
+.container-fluid,
+.tab {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .tab button {
   display: block;
   background-color: inherit;
@@ -35,9 +46,31 @@
   float: auto;
   padding: 10px 20px;
   padding-left: 18%;
-  border: 1px solid #ccc;
-  width: 80%;
-  height: calc(93% - 80px);
+  /* border: 0px solid #ccc; */
+  width: 100%;
+  height: 100%;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/office2.jpeg");
+}
+
+.box {
+  /* background-color: rgba(242, 242, 242, 0.5); */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.content {
+  color: white;
+  padding: 20px;
+}
+
+.content h2 {
+  font-weight: 800;
+}
+
+.content p {
+  margin-top: 10px;
 }
 
 table {
@@ -78,6 +111,10 @@ table td a:visited {
 
 table td a:hover {
   color: blue;
+}
+
+.link-button {
+  margin-bottom: 30px; /* 원하는 간격을 설정하세요 */
 }
 
 .link-button ul {

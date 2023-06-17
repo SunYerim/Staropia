@@ -10,284 +10,320 @@
       src="https://kit.fontawesome.com/698d84a497.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+      .hero__content > h1,
+      .navbar > a,
+      footer {
+        font-family: "Roboto Slab", serif;
+      }
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap");
+      .container-fluid,
+      .tablinks {
+        font-family: "PT Sans", sans-serif;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar__logo">
-        <!-- 현재 fontawesome 깨져보이는 현상때문에 임시로 solid-->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="currentColor"
-          class="bi bi-map"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z"
-          />
-        </svg>
-        <a href="index.html">Staropia</a>
-      </div>
-      <ul class="navbar__menu">
-        <li><a href="ServiceInfo.html">서비스 소개</a></li>
-        <li><a href="allinfo.html">창업에 필요한 정보</a></li>
-        <!-- <li><a href="">산재 지정병원 목록</a></li> -->
-      </ul>
-    </nav>
-
-    <div class="tab">
-      <button
-        class="tablinks"
-        onclick="openCity(event, 'intro')"
-        id="defaultOpen"
-      >
-        창업 지원
-      </button>
-      <button class="tablinks" onclick="openCity(event, '4insure')">
-        4대보험 가입의무
-      </button>
-      <button class="tablinks" onclick="openCity(event, 'startup')">
-        교육지원
-      </button>
-      <button class="tablinks" onclick="openCity(event, 'durunuri')">
-        두루누리
-      </button>
-    </div>
-
-    <div id="intro" class="tabcontent">
-      <div class="link-button">
-        <ul>
-          <li class="button-01">
-            <a
-              href="https://www.nps.or.kr/jsppage/business/insure_cal.jsp"
-              target="_blank"
-            >
-              4대 보험료<br />간편 계산기
-            </a>
-          </li>
-          <li class="button-02">
-            <a
-              href="https://www.4insure.or.kr/ins4/ptl/Main.do"
-              target="_blank"
-            >
-              4대 사회보험<br />정보연계센터
-            </a>
-          </li>
-          <li class="button-03">
-            <a href="https://www.ei.go.kr/ei/eih/cm/hm/main.do" target="_blank">
-              고용보험<br />홈페이지
-            </a>
-          </li>
-          <li class="button-04">
-            <a href="../notes/산재예방 매뉴얼 [최종].pdf" download>
-              산재 예방<br />매뉴얼
-            </a>
-          </li>
+    <header>
+      <nav class="navbar">
+        <div class="navbar__logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="yellow"
+            class="bi bi-geo-alt-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+            />
+          </svg>
+          <a href="ServiceInfo.html">Staropia</a>
+        </div>
+        <ul class="navbar__menu">
+          <li><a href="index.html">지도 서비스</a></li>
+          <li><a href="allinfo.html">창업에 필요한 정보</a></li>
+          <!-- <li><a href="">산재 지정병원 목록</a></li> -->
         </ul>
-      </div>
-      <h2>5인 미만 사업자도 4대보험 가입은 필수입니다</h2>
-      <p>
-        4대보험이란 건강보험, 국민연금, 고용보험, 산재보험으로 5인 미만 사업자도
-        필수로 가입해야 합니다.
-      </p>
-      <p>하지만 직원의 유무에 따라 의무가 달라집니다.</p>
-      <p>좌측 배너를 통해 인원 및 직원의 유무에 따른 차이점을 살펴보세요</p>
-      <div>
-        <table
-          cellpadding="0"
-          cellspacing="0"
-          spellcheck="0"
-          title="창업지원 문의"
+      </nav>
+    </header>
+    <div class="container-fluid">
+      <div class="tab">
+        <button
+          class="tablinks"
+          onclick="openCity(event, 'intro')"
+          id="defaultOpen"
         >
-          <caption>
-            창업지원 문의 기관 안내
-          </caption>
+          창업 지원
+        </button>
+        <button class="tablinks" onclick="openCity(event, '4insure')">
+          4대보험 가입의무
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'startup')">
+          교육지원
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'durunuri')">
+          두루누리
+        </button>
+      </div>
+
+      <div id="intro" class="tabcontent">
+        <div class="box">
+          <div class="link-button">
+            <ul>
+              <li class="button-01">
+                <a
+                  href="https://www.nps.or.kr/jsppage/business/insure_cal.jsp"
+                  target="_blank"
+                >
+                  4대 보험료<br />간편 계산기
+                </a>
+              </li>
+              <li class="button-02">
+                <a
+                  href="https://www.4insure.or.kr/ins4/ptl/Main.do"
+                  target="_blank"
+                >
+                  4대 사회보험<br />정보연계센터
+                </a>
+              </li>
+              <li class="button-03">
+                <a
+                  href="https://www.ei.go.kr/ei/eih/cm/hm/main.do"
+                  target="_blank"
+                >
+                  고용보험<br />홈페이지
+                </a>
+              </li>
+              <li class="button-04">
+                <a href="../notes/산재예방 매뉴얼 [최종].pdf" download>
+                  산재 예방<br />매뉴얼
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="content">
+            <h2 style="font-size: 1.8rem">
+              5인 미만 사업자도 4대보험 가입은 필수입니다
+            </h2>
+            <p>
+              4대보험이란 건강보험, 국민연금, 고용보험, 산재보험으로 5인 미만
+              사업자도 필수로 가입해야 합니다.
+            </p>
+            <p>하지만 직원의 유무에 따라 의무가 달라집니다.</p>
+            <p>
+              좌측 배너를 통해 인원 및 직원의 유무에 따른 차이점을 살펴보세요.
+            </p>
+          </div>
+          <div>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              spellcheck="0"
+              title="창업지원 문의"
+            >
+              <caption>
+                창업지원 문의 기관 안내
+              </caption>
+              <thead>
+                <tr>
+                  <th>기관명</th>
+                  <th>홈페이지</th>
+                  <th>비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>창업지원포털</td>
+                  <td>
+                    <a href="https://www.k-startup.go.kr/" target="_blank"
+                      >https://www.k-startup.go.kr</a
+                    >
+                  </td>
+                  <td>국번없이1357</td>
+                </tr>
+                <tr>
+                  <td>혁신의 숲</td>
+                  <td>
+                    <a href="https://www.innoforest.co.kr/" target="_blank"
+                      >https://www.innoforest.co.kr</a
+                    >
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>스타트업 위클리</td>
+                  <td>
+                    <a
+                      href="http://glance.media/startupweekly/4zL9QSmHgsznIA8921q13MPQ/F763mgYyafQ5G5F79892QOfb5w/rxF8Bbth9njiKyBkxBaqRA"
+                      target="_blank"
+                      >http://glance.media/startupweekly</a
+                    >
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>청년포털</td>
+                  <td>
+                    <a href="https://www.k-startup.go.kr/" target="_blank"
+                      >https://www.2030.go.kr</a
+                    >
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>근로복지공단</td>
+                  <td>
+                    <a
+                      href="https://www.comwel.or.kr/comwel/main.jsp"
+                      target="_blank"
+                      >https://www.comwel.or.kr</a
+                    >
+                  </td>
+                  <td>1588-0075</td>
+                </tr>
+                <tr>
+                  <td>중소벤처기업부</td>
+                  <td>
+                    <a
+                      href="https://www.mss.go.kr/site/smba/main.do"
+                      target="_blank"
+                      >https://www.mss.go.kr</a
+                    >
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="4insure" class="tabcontent">
+        <h2 style="color: #256d85; font-size: 1.8rem">
+          5인 미만 사업자도 4대보험 필수 가입!
+        </h2>
+        <br />
+        <table>
           <thead>
             <tr>
-              <th>기관명</th>
-              <th>홈페이지</th>
-              <th>비고</th>
+              <th>직원유무</th>
+              <th>건강보험</th>
+              <th>국민연금</th>
+              <th>고용보험</th>
+              <th>산재보험</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>창업지원포털</td>
-              <td>
-                <a href="https://www.k-startup.go.kr/" target="_blank"
-                  >https://www.k-startup.go.kr</a
-                >
-              </td>
-              <td>국번없이1357</td>
+              <td>O</td>
+              <td>직장가입*</td>
+              <td>직장가입*</td>
+              <td>의무</td>
+              <td>의무</td>
             </tr>
             <tr>
-              <td>혁신의 숲</td>
-              <td>
-                <a href="https://www.innoforest.co.kr/" target="_blank"
-                  >https://www.innoforest.co.kr</a
-                >
-              </td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>스타트업 위클리</td>
-              <td>
-                <a
-                  href="http://glance.media/startupweekly/4zL9QSmHgsznIA8921q13MPQ/F763mgYyafQ5G5F79892QOfb5w/rxF8Bbth9njiKyBkxBaqRA"
-                  target="_blank"
-                  >http://glance.media/startupweekly</a
-                >
-              </td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>청년포털</td>
-              <td>
-                <a href="https://www.k-startup.go.kr/" target="_blank"
-                  >https://www.2030.go.kr</a
-                >
-              </td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>근로복지공단</td>
-              <td>
-                <a
-                  href="https://www.comwel.or.kr/comwel/main.jsp"
-                  target="_blank"
-                  >https://www.comwel.or.kr</a
-                >
-              </td>
-              <td>1588-0075</td>
-            </tr>
-            <tr>
-              <td>중소벤처기업부</td>
-              <td>
-                <a
-                  href="https://www.mss.go.kr/site/smba/main.do"
-                  target="_blank"
-                  >https://www.mss.go.kr</a
-                >
-              </td>
-              <td></td>
+              <td>X</td>
+              <td>지역가입*</td>
+              <td>지역가입*</td>
+              <td>임의</td>
+              <td>임의</td>
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
 
-    <div id="4insure" class="tabcontent">
-      <h2 style="color: #256d85">5인 미만 사업자도 4대보험 필수 가입!</h2>
-      <br />
-      <table>
-        <thead>
-          <tr>
-            <th>직원유무</th>
-            <th>건강보험</th>
-            <th>국민연금</th>
-            <th>고용보험</th>
-            <th>산재보험</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>O</td>
-            <td>직장가입*</td>
-            <td>직장가입*</td>
-            <td>의무</td>
-            <td>의무</td>
-          </tr>
-          <tr>
-            <td>X</td>
-            <td>지역가입*</td>
-            <td>지역가입*</td>
-            <td>임의</td>
-            <td>임의</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>* 필수 가입</p>
-      <br />
-      <div>
-        <h4>홈페이지 바로가기</h4>
-        <a
-          href="https://www.4insure.or.kr/ins4/ptl/Main.do"
-          target="_blank"
-          style="text-decoration: none; color: #256d85; font-weight: 550"
-        >
-          4대사회보험 정보연계센터 (클릭)
-        </a>
+        <p style="color: white">* 필수 가입</p>
+        <div class="content">
+          <br />
+          <div>
+            <h4>홈페이지 바로가기</h4>
+            <a
+              href="https://www.4insure.or.kr/ins4/ptl/Main.do"
+              target="_blank"
+              style="text-decoration: none; color: #256d85; font-weight: 550"
+            >
+              4대사회보험 정보연계센터 (클릭)
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div id="startup" class="tabcontent">
-      <h2 style="color: #38a3a5">정부 지원사업 소개</h2>
-      <br />
-      <div>
-        <h4>소상공인 경영교육</h4>
-        <p>
-          소상공인이 경영환경 변화에 대처하고 경영능력을 갖춰 경쟁력을 높일 수
-          있도록 전문기술교육, 경영개선교육, 전용교육장 교육 제공
-        </p>
-        <a
-          href="https://www.semas.or.kr/web/SUP01/SUP0101/SUP010102.kmdc"
-          target="_blank"
-          style="text-decoration: none; color: #38a3a5; font-weight: 550"
-        >
-          소상공인시장진흥공단 [경영교육] (클릭)
-        </a>
+      <div id="startup" class="tabcontent">
+        <h2 style="color: #38a3a5; font-size: 1.8rem">정부 지원사업 소개</h2>
+        <br />
+        <div class="content" style="font-size: 20px">
+          <h4 style="font-size: 25px">소상공인 경영교육</h4>
+          <p>
+            소상공인이 경영환경 변화에 대처하고 경영능력을 갖춰 경쟁력을 높일 수
+            있도록 전문기술교육, 경영개선교육, 전용교육장 교육 제공
+          </p>
+          <a
+            href="https://www.semas.or.kr/web/SUP01/SUP0101/SUP010102.kmdc"
+            target="_blank"
+            style="text-decoration: none; color: #38a3a5; font-weight: 550"
+          >
+            소상공인시장진흥공단 [경영교육] (클릭)
+          </a>
+        </div>
+        <br /><br />
+        <div class="content" style="font-size: 20px">
+          <h4 style="font-size: 25px">정책자금 지원조건</h4>
+          <p>
+            상시근로자 5인 미만 업체 (제조업, 건설업, 운수업, 광업: 상시근로자
+            10인 미만 업체) <br />
+            - 제외업종: 유흥 향락 업종, 전문업종, 금융업, 보험업, 부동산업 등
+          </p>
+          <a
+            href="https://www.semas.or.kr/web/SUP01/SUP0103/SUP010301.kmdc"
+            target="_blank"
+            style="text-decoration: none; color: #38a3a5; font-weight: 550"
+          >
+            소상공인시장진흥공단 [정책자금] (클릭)
+          </a>
+        </div>
       </div>
-      <br /><br />
-      <div>
-        <h4>정책자금 지원조건</h4>
-        <p>
-          상시근로자 5인 미만 업체 (제조업, 건설업, 운수업, 광업: 상시근로자
-          10인 미만 업체) <br />
-          - 제외업종: 유흥 향락 업종, 전문업종, 금융업, 보험업, 부동산업 등
-        </p>
-        <a
-          href="https://www.semas.or.kr/web/SUP01/SUP0103/SUP010301.kmdc"
-          target="_blank"
-          style="text-decoration: none; color: #38a3a5; font-weight: 550"
-        >
-          소상공인시장진흥공단 [정책자금] (클릭)
-        </a>
-      </div>
-    </div>
 
-    <div id="durunuri" class="tabcontent">
-      <div>
-        <h3>10인 미만 사업장 근로자 및 사업주를 위한</h3>
-        <h2 style="color: blueviolet">두루누리 보험료 지원</h2>
-      </div>
-      <br />
-      <div>
-        <h4>지원대상</h4>
-        <p>
-          근로자 수가 10명 미만인 사업에 고용된 근로자 중 월 평균보수가 260만원
-          미만인 신규가입 근로자와 그 사업주
-        </p>
-      </div>
-      <br />
-      <div>
-        <h4>지원수준 및 지원기간</h4>
-        <p>대상자가 부담하는 고용보험과 국민연금 보험료의 80%</p>
-        <p>
-          2018년 1월 1일부터 신규가입자 및 기가입자 지원을 합산해 36개월까지만
-          지원
-        </p>
-      </div>
-      <br />
-      <div>
-        <h4>홈페이지 바로가기</h4>
-        <a
-          href="http://insurancesupport.or.kr/home/start.php"
-          target="_blank"
-          style="text-decoration: none; color: blueviolet; font-weight: 550"
-        >
-          두루누리 사회보험료 지원 (클릭)
-        </a>
+      <div id="durunuri" class="tabcontent">
+        <div class="content">
+          <div>
+            <h3>10인 미만 사업장 근로자 및 사업주를 위한</h3>
+            <h2 style="color: blueviolet; font-size: 1.8rem">
+              두루누리 보험료 지원
+            </h2>
+          </div>
+          <br />
+          <div>
+            <h4 style="font-size: 1.2rem">지원대상</h4>
+            <p>
+              근로자 수가 10명 미만인 사업에 고용된 근로자 중 월 평균보수가
+              260만원 미만인 신규가입 근로자와 그 사업주
+            </p>
+          </div>
+          <br />
+          <div>
+            <h4 style="font-size: 1.2rem">지원수준 및 지원기간</h4>
+            <p>대상자가 부담하는 고용보험과 국민연금 보험료의 80%</p>
+            <p>
+              2018년 1월 1일부터 신규가입자 및 기가입자 지원을 합산해
+              36개월까지만 지원
+            </p>
+          </div>
+          <br />
+          <div>
+            <h4 style="margin-bottom: 10px">홈페이지 바로가기</h4>
+            <a
+              href="http://insurancesupport.or.kr/home/start.php"
+              target="_blank"
+              style="text-decoration: none; color: blueviolet; font-weight: 550"
+            >
+              두루누리 사회보험료 지원 (클릭)
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -310,6 +346,6 @@
       document.getElementById("defaultOpen").click();
     </script>
 
-    <footer>copyright staropia</footer>
+    <footer><p>&copy; 2023 Staropia. All rights reserved.</p></footer>
   </body>
 </html>
