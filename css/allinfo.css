@@ -41,6 +41,59 @@
   padding: 10px 20px;
   padding-left: 18%;
   border: 1px solid #ccc;
-  width: 100%;
+  width: 80%;
   height: calc(93% - 80px);
 }
+
+table {width: 100%}
+table caption {display: none}
+table th {height: 50px; text-align: center;border-left:1px #eee solid;border-bottom:1px #eee solid;background:#f6f6f6; }
+table tr:first-child th{border-top:2px #323232 solid;}
+table td { letter-spacing: -.5px; line-height:19px; padding: 10px; text-align: center;border-left:1px #eee solid;border-bottom:1px #eee solid; background:#fff}
+
+table td a:link {
+  color: black;
+  text-decoration: none;
+}
+
+table td a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+table td a:hover {
+  color: blue;
+}
+
+.link-button ul {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 1%;
+}
+
+.link-button ul li {
+  display: inline-block;
+  width: calc((100% - 40px)/4);
+  text-align: center;
+  text-decoration: none;
+  line-height: 20px;
+  padding: 20px 0;
+  margin: 0 2px;
+  border-radius: 10px;
+}
+
+.link-button ul li a {color: black; font-weight: bold;}
+.link-button ul li a:link {text-decoration: none;}
+
+.link-button ul li.button-01 {background-color: #F5F0BB;}
+.link-button ul li.button-01:hover {background-color: #F7FF93;}
+
+.link-button ul li.button-02 {background-color: #73A9AD;}
+.link-button ul li.button-02:hover {background-color: #43919B;}
+
+.link-button ul li.button-03 {background-color: #C4DFAA;}
+.link-button ul li.button-03:hover {background-color: #90C8AC;}
+
+.link-button ul li.button-04 {background-color: #C8B6E2;}
+.link-button ul li.button-04:hover {background-color: #A8A4CE;}
+
