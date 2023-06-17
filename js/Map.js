@@ -274,16 +274,13 @@ function showOffcanvas(gyData, sjData) {
     var sjSeongripDate =
       sjData.getElementsByTagName("seongripDt")[0].childNodes[0].textContent;
 
-    //좌측 오프캔버스
+    // 오프캔버스
     var offcanvasElement = document.getElementById("offcanvas");
     var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
-    // 우측 오프캔버스
-    offcanvasElement = document.getElementById("offcanvas-right");
-    var offcanvas_right = new bootstrap.Offcanvas(offcanvasElement);
     // 열기
     offcanvas.show();
-    offcanvas_right.show();
-    // 좌측 캔버스 데이터 변경
+    // 오프캔버스 데이터 변경
+    // 기본 데이터
     document.getElementById("name").innerHTML = companyName;
     document.getElementById("address").innerHTML = address;
     document.getElementById("companyNumber").innerHTML =
@@ -307,35 +304,36 @@ function showOffcanvas(gyData, sjData) {
       "월 " +
       sjSeongripDate.substr(6, 2) +
       "일";
-    // 산재 빈도 리스트 태그, 내용이 들어갈 태그, 해당 업종 데이터를 불러온다.
+
+    // 산재 빈도 리스트 태그, 내용이 들어갈 태그, 해당 업종 산재 데이터를 불러온다.
     var injuryTagsList = document.getElementsByClassName('injuryTag');
     var injuryTags = document.getElementsByClassName('content-sj');
     var injuryData = injuryPerEopjong.get(sjEopjongName);
-
     // 병명이 없을 때까지 내용을 변경하고 보이게 한다.
     let i = 0;
     // 데이터가 있을 때만 연산
     if(injuryData !== undefined) {
-      document.getElementById("injuryHeader").style.visibility = 'visible';
+      document.getElementById("injuryList").style.display = '';
       // 모든 키 값을 순서대로 조회
       for(const key of injuryData.keys()) {
         if(i === injuryData.size) {
           break;
         }
+        // 내용을 변경하고 표시
         injuryTags[i].innerHTML = injuryCode.get(key);
-        injuryTagsList[i].style.visibility = 'visible';
+        injuryTagsList[i].style.display = '';
         i++;
       }
     }
-    // 데이터가 없으면 헤더를 숨김
+    // 데이터가 없으면 리스트 전체를 숨김
     else{
-      document.getElementById("injuryHeader").style.visibility = 'hidden';
+      document.getElementById("injuryList").style.display = 'none';
     }
     // 병명이 작성되지 않은 태그들은 숨긴다
     for(; i < 3; i++) {
-      injuryTagsList[i].style.visibility = 'hidden';
+      injuryTagsList[i].style.display = 'none';
     }
-    // 고용코드의 첫 3자리로 페이지 번호 검색, 없을 시 첫 페이지가 보인다.
+    // 고용코드의 첫 3자리로 매뉴얼 페이지 번호 검색, 없을 시 첫 페이지가 보인다.
     var pageNum = sanjaePageNum.get(Math.floor(gyEopjongCode / 100));
     var sanjaeFrame = document.getElementById("sanjaeManual");
     // 페이지 변환을 위해 링크를 지운 뒤 10ms 후 생성
