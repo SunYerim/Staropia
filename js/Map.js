@@ -336,10 +336,10 @@ function showOffcanvas(gyData, sjData) {
     // 고용코드의 첫 3자리로 매뉴얼 페이지 번호 검색, 없을 시 첫 페이지가 보인다.
     var pageNum = sanjaePageNum.get(Math.floor(gyEopjongCode / 100));
     var sanjaeFrame = document.getElementById("sanjaeManual");
-    // 페이지 변환을 위해 링크를 지운 뒤 10ms 후 생성
+    // 페이지 변환을 위해 링크를 지운 뒤 100ms 후 생성
     sanjaeFrame.src = "";
     setTimeout(function () {
       sanjaeFrame.src = "../notes/산재예방 매뉴얼 [최종].pdf#page=" + pageNum;
-    }, 10);
+    }, 100);
   };
 }
