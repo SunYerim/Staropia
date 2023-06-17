@@ -1,6 +1,7 @@
 // 업종별 산재 빈도, 상병코드 map 객체를 불러옴
 import injuryPerEopjong from './injuryPerEopjong.js';
 import injuryCode from './injuryCode.js';
+import sanjaePageNum from './sanjaePageNum.js';
 
 var mapContainer = document.getElementById("map"), // 지도를 표시할 div
   mapOption = {
@@ -31,7 +32,6 @@ document.querySelector(".search-form").addEventListener("submit", function (e) {
 function search() {
   // 선택된 값들을 가져온다.
   var region = document.querySelector("#region").value;
-  console.log(region);
   // var workerCount = doucument.querySelector("#workerCount").value;
 
   // 검색창에 입력된 키워드를 가져온다.
@@ -209,7 +209,6 @@ function showPreviewWindow(place, data) {
   return function () {
     // 미리보기창 위치를 변경한다
     previewWindow.setPosition(new kakao.maps.LatLng(place.y, place.x));
-    console.log(data);
     // 사업장명을 받아와, '주식회사'나 '(주)'를 제거한다.
     var companyName =
       data.getElementsByTagName("saeopjangNm")[0].childNodes[0].textContent;
@@ -312,10 +311,10 @@ function showOffcanvas(gyData, sjData) {
     var injuryTagsList = document.getElementsByClassName('injuryTag');
     var injuryTags = document.getElementsByClassName('content-sj');
     var injuryData = injuryPerEopjong.get(sjEopjongName);
-    console.log(injuryData);
+
     // 병명이 없을 때까지 내용을 변경하고 보이게 한다.
     let i = 0;
-    // 데이터가 아예 없으면 연산하지 않음
+    // 데이터가 있을 때만 연산
     if(injuryData !== undefined) {
       document.getElementById("injuryHeader").style.visibility = 'visible';
       // 모든 키 값을 순서대로 조회
@@ -328,30 +327,22 @@ function showOffcanvas(gyData, sjData) {
         i++;
       }
     }
+    // 데이터가 없으면 헤더를 숨김
     else{
       document.getElementById("injuryHeader").style.visibility = 'hidden';
     }
     // 병명이 작성되지 않은 태그들은 숨긴다
     for(; i < 3; i++) {
       injuryTagsList[i].style.visibility = 'hidden';
-      console.log(i + '번째 숨겨짐');
     }
-    // 우측 캔버스 pdf 페이지 변경
-    var pageNum = 4;
-    var pageNum2 = 5;
-    if (companyName === "늘올주점") {
-      pageNum = 10;
-      pageNum2 = 11;
-    }
-    console.log(pageNum);
+    // 고용코드의 첫 3자리로 페이지 번호 검색, 없을 시 첫 페이지가 보인다.
+    var pageNum = sanjaePageNum.get(Math.floor(gyEopjongCode / 100));
     var sanjaeFrame = document.getElementById("sanjaeManual");
-    var anjeonFrame = document.getElementById("anjeonGuide");
+    // 페이지 변환을 위해 링크를 지운 뒤 10ms 후 생성
     sanjaeFrame.src = "";
-    anjeonFrame.src = "";
     setTimeout(function () {
       sanjaeFrame.src = "../notes/산재예방 매뉴얼 [최종].pdf#page=" + pageNum;
-      anjeonFrame.src = "../notes/소규모 사업장 안전보건교육 가이드.pdf#page=" + pageNum2;
-    }, 100);
+    }, 10);
   };
 }
 
