@@ -33,139 +33,129 @@ function search() {
   // 선택된 값들을 가져온다.
   var region = document.querySelector("#region").value;
   // var workerCount = doucument.querySelector("#workerCount").value;
-
   // 검색창에 입력된 키워드를 가져온다.
   var keyword = document.getElementById("keyword").value;
-  ps.keywordSearch(keyword, placesSearchCB);
 
-  // 키워드 검색 완료 시 호출되는 함수
-  function placesSearchCB(data, status, pagination) {
-    if (status === kakao.maps.services.Status.OK) {
-      displayPlaces(data);
-    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-      alert("검색 결과가 없습니다.");
-      return;
-    } else {
-      alert("검색 도중 오류가 발생했습니다.");
-    }
-  }
-
-  function displayPlaces(places) {
-    hideMarkers();
-    clearMarkers();
-    var bounds = new kakao.maps.LatLngBounds();
-
-    for (var i = 0; i < places.length; i++) {
-      addMarker(places[i], region);
-      bounds.extend(new kakao.maps.LatLng(places[i].y, places[i].x));
-    }
-
-    map.setBounds(bounds);
-  }
-}
-
-// 마커를 생성하는 함수
-function addMarker(place, area) {
   // 사업장명으로 사업자등록번호를 조회한다.
   var url =
     "https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3&q=" +
-    place.place_name +
+    keyword +
     "&type=json";
-  if (area !== "지역") {
-    url += "&area=" + area;
+  if (region !== "지역") {
+    url += "&area=" + region;
   }
 
   fetch(url)
     .then((res) => res.json())
     .then((resJson) => {
-      // 사업자등록번호에서 '-'를 제거한다.
-      var saeopjangNo = removeAllLetters(resJson.items[0].bno, "-");
+      for (let i = 0; i < resJson.totalCount; i++) {
+        // 사업자등록번호에서 '-'를 제거한다.
+        var saeopjangNo = removeAllLetters(resJson.items[0].bno, "-");
+        // 사업자등록번호를 사용해 해당 기업 정보를 xml로 받아온다.
+        var xhr = new XMLHttpRequest();
+        var xhr2 = new XMLHttpRequest();
+        var url =
+          "http://apis.data.go.kr/B490001/gySjbPstateInfoService/getGySjBoheomBsshItem";
+        var queryParams =
+          "?" +
+          encodeURIComponent("serviceKey") +
+          "=" +
+          "JO7Z2MdHanL%2BIYer3fTrXt8YbY4SCcOgXXDCJI4WU8wn%2BUFo08xrBdI29hH1akZqm6GbXFTH7UAabBwCEQh8ew%3D%3D"; /*Service Key*/
+        queryParams +=
+          "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
+        queryParams +=
+          "&" +
+          encodeURIComponent("numOfRows") +
+          "=" +
+          encodeURIComponent("10"); /**/
+        queryParams +=
+          "&" +
+          encodeURIComponent("v_saeopjaDrno") +
+          "=" +
+          encodeURIComponent(saeopjangNo); /**/
+        var opa1 =
+          "&" +
+          encodeURIComponent("opaBoheomFg") +
+          "=" +
+          encodeURIComponent("1"); /**/
+        var opa2 =
+          "&" +
+          encodeURIComponent("opaBoheomFg") +
+          "=" +
+          encodeURIComponent("2"); /**/
+        xhr.open("GET", url + queryParams + opa1);
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            console.log(
+              "Status: " +
+              this.status +
+              "nHeaders: " +
+              JSON.stringify(this.getAllResponseHeaders()) +
+              "nBody: " +
+              this.responseText
+            );
+            // 산재 데이터를 받아온다.
+            var sjData = xhr.responseXML;
 
-      // 사업자등록번호를 사용해 해당 기업 정보를 xml로 받아온다.
-      var xhr = new XMLHttpRequest();
-      var xhr2 = new XMLHttpRequest();
-      var url =
-        "http://apis.data.go.kr/B490001/gySjbPstateInfoService/getGySjBoheomBsshItem"; /*URL*/
-      var queryParams =
-        "?" +
-        encodeURIComponent("serviceKey") +
-        "=" +
-        "JO7Z2MdHanL%2BIYer3fTrXt8YbY4SCcOgXXDCJI4WU8wn%2BUFo08xrBdI29hH1akZqm6GbXFTH7UAabBwCEQh8ew%3D%3D"; /*Service Key*/
-      queryParams +=
-        "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
-      queryParams +=
-        "&" +
-        encodeURIComponent("numOfRows") +
-        "=" +
-        encodeURIComponent("10"); /**/
-      queryParams +=
-        "&" +
-        encodeURIComponent("v_saeopjaDrno") +
-        "=" +
-        encodeURIComponent(saeopjangNo); /**/
-      var opa1 =
-        "&" +
-        encodeURIComponent("opaBoheomFg") +
-        "=" +
-        encodeURIComponent("1"); /**/
-      var opa2 =
-        "&" +
-        encodeURIComponent("opaBoheomFg") +
-        "=" +
-        encodeURIComponent("2"); /**/
-      xhr.open("GET", url + queryParams + opa1);
-      xhr.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          console.log(
-            "Status: " +
-            this.status +
-            "nHeaders: " +
-            JSON.stringify(this.getAllResponseHeaders()) +
-            "nBody: " +
-            this.responseText
-          );
-          // 산재 데이터를 받아온다.
-          var sjData = xhr.responseXML;
+            // 산재 데이터가 존재한다면 고용 데이터도 받아온다.
+            xhr2.open("GET", url + queryParams + opa2);
+            xhr2.onreadystatechange = function () {
+              if (this.readyState == 4) {
+                // console.log('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+                var gyData = xhr2.responseXML;
 
-          // 산재 데이터가 존재한다면 고용 데이터도 받아온다.
-          xhr2.open("GET", url + queryParams + opa2);
-          xhr2.onreadystatechange = function () {
-            if (this.readyState == 4) {
-              // console.log('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
-              var gyData = xhr2.responseXML;
+                // 정보가 있는 기업만 마커를 생성한다.
+                const marker = new kakao.maps.Marker({
+                  map: map,
+                  position: new kakao.maps.LatLng(place.y, place.x),
+                });
 
-              // 정보가 있는 기업만 마커를 생성한다.
-              const marker = new kakao.maps.Marker({
-                map: map,
-                position: new kakao.maps.LatLng(place.y, place.x),
-              });
+                kakao.maps.event.addListener(
+                  marker,
+                  "mouseover",
+                  showPreviewWindow(place, gyData)
+                );
+                kakao.maps.event.addListener(
+                  marker,
+                  "mouseout",
+                  hidePreviewWindow()
+                );
+                kakao.maps.event.addListener(
+                  marker,
+                  "click",
+                  showOffcanvas(gyData, sjData)
+                );
 
-              kakao.maps.event.addListener(
-                marker,
-                "mouseover",
-                showPreviewWindow(place, gyData)
-              );
-              kakao.maps.event.addListener(
-                marker,
-                "mouseout",
-                hidePreviewWindow()
-              );
-              kakao.maps.event.addListener(
-                marker,
-                "click",
-                showOffcanvas(gyData, sjData)
-              );
+                markers.push(marker);
+              }
+            };
 
-              markers.push(marker);
-            }
-          };
+            xhr2.send("");
+          }
+        };
 
-          xhr2.send("");
+        xhr.send("");
+      }
+    }
+  function displayPlaces(places) {
+        hideMarkers();
+        clearMarkers();
+        var bounds = new kakao.maps.LatLngBounds();
+
+        for (var i = 0; i < places.length; i++) {
+          addMarker(places[i], region);
+          bounds.extend(new kakao.maps.LatLng(places[i].y, places[i].x));
         }
-      };
 
-      xhr.send("");
-    });
+        map.setBounds(bounds);
+      }
+}
+
+// 마커를 생성하는 함수
+function addMarker(place, area) {
+
+
+});
 }
 
 // str에서 모든 char를 제거한 문자열을 반환한다.
@@ -312,11 +302,11 @@ function showOffcanvas(gyData, sjData) {
     // 병명이 없을 때까지 내용을 변경하고 보이게 한다.
     let i = 0;
     // 데이터가 있을 때만 연산
-    if(injuryData !== undefined) {
+    if (injuryData !== undefined) {
       document.getElementById("injuryList").style.display = '';
       // 모든 키 값을 순서대로 조회
-      for(const key of injuryData.keys()) {
-        if(i === injuryData.size) {
+      for (const key of injuryData.keys()) {
+        if (i === injuryData.size) {
           break;
         }
         // 내용을 변경하고 표시
@@ -326,11 +316,11 @@ function showOffcanvas(gyData, sjData) {
       }
     }
     // 데이터가 없으면 리스트 전체를 숨김
-    else{
+    else {
       document.getElementById("injuryList").style.display = 'none';
     }
     // 병명이 작성되지 않은 태그들은 숨긴다
-    for(; i < 3; i++) {
+    for (; i < 3; i++) {
       injuryTagsList[i].style.display = 'none';
     }
     // 고용코드의 첫 3자리로 매뉴얼 페이지 번호 검색, 없을 시 첫 페이지가 보인다.
