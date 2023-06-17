@@ -10,70 +10,84 @@
       src="https://kit.fontawesome.com/698d84a497.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+
+      .navbar > a,
+      footer {
+        font-family: "Roboto Slab", serif;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar__logo">
-        <!-- 현재 fontawesome 깨져보이는 현상때문에 임시로 solid-->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="currentColor"
-          class="bi bi-map"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z"
-          />
-        </svg>
-        <a href="index.html">Staropia</a>
-      </div>
+    <header>
+      <nav class="navbar">
+        <div class="navbar__logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="yellow"
+            class="bi bi-geo-alt-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+            />
+          </svg>
+          <a href="index.html">Staropia</a>
+        </div>
 
-      <ul class="navbar__menu">
-        <li><a href="ServiceInfo.html">서비스 소개</a></li>
-        <li><a href="allinfo.html">창업에 필요한 정보</a></li>
-        <!-- <li><a href="">산재 지정병원 목록</a></li> -->
-      </ul>
-    </nav>
-
+        <ul class="navbar__menu">
+          <li><a href="ServiceInfo.html">서비스 소개</a></li>
+          <li><a href="allinfo.html">창업에 필요한 정보</a></li>
+          <!-- <li><a href="">산재 지정병원 목록</a></li> -->
+        </ul>
+      </nav>
+    </header>
 
     <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'under5')" id="defaultOpen">5인 이하</button>
-      <button class="tablinks" onclick="openCity(event, 'over5')">5인 이상</button>
+      <button
+        class="tablinks"
+        onclick="openCity(event, 'under5')"
+        id="defaultOpen"
+      >
+        5인 이하
+      </button>
+      <button class="tablinks" onclick="openCity(event, 'over5')">
+        5인 이상
+      </button>
     </div>
-    
+
     <div id="under5" class="tabcontent">
       <h3>5인 이하 사업장</h3>
       <p>5인 이하 사업장이 받을 수 있는 지원 정보 등</p>
     </div>
-    
+
     <div id="over5" class="tabcontent">
       <h3>5인 이상 사업장</h3>
-      <p>5인 이상 사업장에서 받을 수 있는 혜택 및 보험료율 등 </p> 
+      <p>5인 이상 사업장에서 받을 수 있는 혜택 및 보험료율 등</p>
     </div>
-        
+
     <script>
-    function openCity(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
       }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-      
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
     </script>
-   
-   
-    <footer>copyright staropia</footer>
+
+    <footer><p>&copy; 2023 Staropia. All rights reserved.</p></footer>
   </body>
 </html>
