@@ -60,7 +60,7 @@
       tabindex="-1"
       id="offcanvas"
       aria-labelledby="offcanvasLabel"
-      style="width: 25%; min-width: 400px;"
+      style="width: 40%; min-width: 400px;"
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
@@ -115,12 +115,12 @@
               <li><div class="content">일자</div></li>
             </ul>
           </ul>
-          <hr>
-          <ul>
-            <div class="header" id="injuryHeader">산재 발생 빈도</div><br>
+          <ul id="injuryList">
+            <div class="header">
+              <hr>산재 발생 빈도</div><br>
             <ul class="multiColumn injuryTag">
               <ul class="sanjae">
-                <li><div class="header-sj">1위</div></li>
+                <li><div class="header-sj">1위 |</div></li>
               </ul>
               <ul>
                 <li><div class="content-sj">병명</div></li>
@@ -128,7 +128,7 @@
             </ul>
             <ul class="multiColumn injuryTag">
               <ul class="sanjae">
-                <li><div class="header-sj">2위</div></li>
+                <li><div class="header-sj">2위 |</div></li>
               </ul>
               <ul>
                 <li><div class="content-sj">병명</div></li>
@@ -136,13 +136,21 @@
             </ul>
             <ul class="multiColumn injuryTag">
               <ul class="sanjae">
-                <li><div class="header-sj">3위</div></li>
+                <li><div class="header-sj">3위 |</div></li>
               </ul>
               <ul>
                 <li><div class="content-sj">병명</div></li>
               </ul>
             </ul>
-          </ul>
+          </ul><br>
+          <!-- 산재예방 매뉴얼 -->
+          <div class="header-right"><hr>산재예방 매뉴얼</div>
+          <iframe id="sanjaeManual" src="../notes/산재예방 매뉴얼 [최종].pdf"></iframe>
+          <div class="newWindowButton" onclick="window.open('../notes/산재예방 매뉴얼 [최종].pdf');">
+            <img src="../images/search.png">
+            크게 보기
+          </div>
+          <br><br><br>
         </div>
       </div>
     </div>
@@ -165,14 +173,6 @@
       </div>
       <div class="offcanvas-body">
         <div id="container">
-          <!-- 산재예방 매뉴얼 -->
-          <div class="header-right">산재예방 매뉴얼</div>
-          <iframe id="sanjaeManual" src="../notes/산재예방 매뉴얼 [최종].pdf"></iframe>
-          <div class="newWindowButton" onclick="window.open('../notes/산재예방 매뉴얼 [최종].pdf');">
-            <img src="../images/search.png">
-            크게 보기
-          </div>
-          <br><br><br>
           <!-- 안전보건교육 매뉴얼 -->
           <div class="header-right">안전보건교육 가이드</div>
           <iframe id="anjeonGuide" src="../notes/소규모 사업장 안전보건교육 가이드.pdf"></iframe>
