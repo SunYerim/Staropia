@@ -53,7 +53,108 @@
         <!-- <li><a href="">산재 지정병원 목록</a></li> -->
       </ul>
     </nav>
-  </header>
+    </header>
+    
+    <!-- 우측 오프캔버스-->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvas-right"
+      aria-labelledby="offcanvasLabel"
+      style="width: 40%; min-width: 400px;"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="container">
+          <!-- 안전보건교육 매뉴얼 -->
+          <div class="header-right">안전보건교육 가이드</div>
+          <iframe id="anjeonGuide" src="../notes/소규모 사업장 안전보건교육 가이드.pdf"></iframe>
+          <div class="newWindowButton" onclick="window.open('../notes/소규모 사업장 안전보건교육 가이드.pdf');">
+            <img src="../images/search.png">
+            크게 보기
+          </div>
+          <br><br><br>
+          <!-- 복지리 -->
+          <div class="header-right">이 회사의 복지가 궁금하다면?</div>
+          <div id="bokziri" onclick="window.open('https://bokziri.com');">
+            <img id="bokziri-icon" src="../images/bokziri icon.jpeg"></img>&nbsp;&nbsp;Bokziri.com
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 지도 -->
+    <div id="map" class="map"></div>
+    <div class="search-container">
+      <script type="module" src="../js/injuryCode.js"></script>
+      <script type="module" src="../js/injuryPerEopjong.js"></script>
+      <script type="module" src="../js/sanjaePageNum.js"></script>
+      <script type="module" src="../js/Map.js"></script>
+      <form class="search-form">
+        <div class="select-container">
+        <!-- 지역  -->
+        <select
+          class="form-select"
+          aria-label=".form-select-lg example"
+          style="width: 100px"
+          id="region"
+        >
+          <option selected>지역</option>
+          <option value="부산">부산</option>
+          <option value="경남">경남</option>
+          <option value="경북">경북</option>
+          <option value="서울">서울</option>
+          <option value="경기">경기</option>
+        </select>
+      </div>
+      <div class="select-container">
+        <!--근로자수-->
+        <select
+          class="form-select"
+          aria-label=".form-select-lg example"
+          style="width: 120px"
+          id="workerCount"
+        >
+          <option selected>근로자수</option>
+          <option value="1">5인 미만</option>
+          <option value="2">5인 이상</option>
+          
+        </select>
+      </div>
+
+        <!-- 업종 -->
+        <!-- <select
+          class="form-select"
+          aria-label=".form-select-lg example"
+          style="width: 100px"
+          id="industryCode"
+        >
+          <option selected>업종</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select> -->
+
+        <input
+          type="search"
+          value=""
+          id="keyword"
+          placeholder="Search"
+          class="search-input"
+          style="width: 700px"
+        />
+        <button type="submit" class="search-button">
+          <img src="../images/search.png" />
+        </button>
+      </form>
+    </div>
     <!-- 상세페이지 - 오프캔버스-->
     <div
       class="offcanvas offcanvas-start"
@@ -153,105 +254,6 @@
           <br><br><br>
         </div>
       </div>
-    </div>
-    <!-- 우측 오프캔버스-->
-    <div
-      class="offcanvas offcanvas-end"
-      tabindex="-1"
-      id="offcanvas-right"
-      aria-labelledby="offcanvasLabel"
-      style="width: 40%; min-width: 400px;"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <div id="container">
-          <!-- 안전보건교육 매뉴얼 -->
-          <div class="header-right">안전보건교육 가이드</div>
-          <iframe id="anjeonGuide" src="../notes/소규모 사업장 안전보건교육 가이드.pdf"></iframe>
-          <div class="newWindowButton" onclick="window.open('../notes/소규모 사업장 안전보건교육 가이드.pdf');">
-            <img src="../images/search.png">
-            크게 보기
-          </div>
-          <br><br><br>
-          <!-- 복지리 -->
-          <div class="header-right">이 회사의 복지가 궁금하다면?</div>
-          <div id="bokziri" onclick="window.open('https://bokziri.com');">
-            <img id="bokziri-icon" src="../images/bokziri icon.jpeg"></img>&nbsp;&nbsp;Bokziri.com
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- 지도 -->
-    <div id="map" class="map"></div>
-    <div class="search-container">
-      <script type="module" src="../js/injuryCode.js"></script>
-      <script type="module" src="../js/injuryPerEopjong.js"></script>
-      <script type="module" src="../js/Map.js"></script>
-      <form class="search-form">
-        <div class="select-container">
-        <!-- 지역  -->
-        <select
-          class="form-select"
-          aria-label=".form-select-lg example"
-          style="width: 100px"
-          id="region"
-        >
-          <option selected>지역</option>
-          <option value="부산">부산</option>
-          <option value="경남">경남</option>
-          <option value="경북">경북</option>
-          <option value="서울">서울</option>
-          <option value="경기">경기</option>
-        </select>
-      </div>
-      <div class="select-container">
-        <!--근로자수-->
-        <select
-          class="form-select"
-          aria-label=".form-select-lg example"
-          style="width: 120px"
-          id="workerCount"
-        >
-          <option selected>근로자수</option>
-          <option value="1">5인 미만</option>
-          <option value="2">5인 이상</option>
-          
-        </select>
-      </div>
-
-        <!-- 업종 -->
-        <!-- <select
-          class="form-select"
-          aria-label=".form-select-lg example"
-          style="width: 100px"
-          id="industryCode"
-        >
-          <option selected>업종</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select> -->
-
-        <input
-          type="search"
-          value=""
-          id="keyword"
-          placeholder="Search"
-          class="search-input"
-          style="width: 700px"
-        />
-        <button type="submit" class="search-button">
-          <img src="../images/search.png" />
-        </button>
-      </form>
     </div>
     <script src="../js/Map.js"></script>
     <footer><p>&copy; 2023 Staropia. All rights reserved.</p></footer>
