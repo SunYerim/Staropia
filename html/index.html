@@ -18,6 +18,15 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+      
+      .navbar > a,
+      footer {
+        font-family: "Roboto Slab", serif;
+      }
+    </style>
+    
   </head>
   <body>
     <!-- 카카오 맵 api 스크립트 추가-->
@@ -28,37 +37,30 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <header>
     <nav class="navbar">
       <div class="navbar__logo">
         <!-- 현재 fontawesome 깨져보이는 현상때문에 임시로 solid-->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="currentColor"
-          class="bi bi-map"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="yellow" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
         </svg>
-        <a href="index.html">Staropia</a>
+        <a href="ServiceInfo.html">Staropia</a>
       </div>
 
       <ul class="navbar__menu">
-        <li><a href="ServiceInfo.html">서비스 소개</a></li>
+        <!-- <li><a href="ServiceInfo.html">서비스 소개</a></li> -->
         <li><a href="allinfo.html">창업에 필요한 정보</a></li>
         <!-- <li><a href="">산재 지정병원 목록</a></li> -->
       </ul>
     </nav>
+  </header>
     <!-- 상세페이지 - 오프캔버스-->
     <div
       class="offcanvas offcanvas-start"
       tabindex="-1"
       id="offcanvas"
       aria-labelledby="offcanvasLabel"
+      style="width: 40%; min-width: 400px;"
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
@@ -113,20 +115,88 @@
               <li><div class="content">일자</div></li>
             </ul>
           </ul>
-          <hr>
-
-
-
-
-          
+          <ul id="injuryList">
+            <div class="header">
+              <hr>산재 발생 빈도</div><br>
+            <ul class="multiColumn injuryTag">
+              <ul class="sanjae">
+                <li><div class="header-sj">1위 |</div></li>
+              </ul>
+              <ul>
+                <li><div class="content-sj">병명</div></li>
+              </ul>
+            </ul>
+            <ul class="multiColumn injuryTag">
+              <ul class="sanjae">
+                <li><div class="header-sj">2위 |</div></li>
+              </ul>
+              <ul>
+                <li><div class="content-sj">병명</div></li>
+              </ul>
+            </ul>
+            <ul class="multiColumn injuryTag">
+              <ul class="sanjae">
+                <li><div class="header-sj">3위 |</div></li>
+              </ul>
+              <ul>
+                <li><div class="content-sj">병명</div></li>
+              </ul>
+            </ul>
+          </ul><br>
+          <!-- 산재예방 매뉴얼 -->
+          <div class="header-right"><hr>산재예방 매뉴얼</div>
+          <iframe id="sanjaeManual" src="../notes/산재예방 매뉴얼 [최종].pdf"></iframe>
+          <div class="newWindowButton" onclick="window.open('../notes/산재예방 매뉴얼 [최종].pdf');">
+            <img src="../images/search.png">
+            크게 보기
+          </div>
+          <br><br><br>
+        </div>
+      </div>
+    </div>
+    <!-- 우측 오프캔버스-->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvas-right"
+      aria-labelledby="offcanvasLabel"
+      style="width: 40%; min-width: 400px;"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="container">
+          <!-- 안전보건교육 매뉴얼 -->
+          <div class="header-right">안전보건교육 가이드</div>
+          <iframe id="anjeonGuide" src="../notes/소규모 사업장 안전보건교육 가이드.pdf"></iframe>
+          <div class="newWindowButton" onclick="window.open('../notes/소규모 사업장 안전보건교육 가이드.pdf');">
+            <img src="../images/search.png">
+            크게 보기
+          </div>
+          <br><br><br>
+          <!-- 복지리 -->
+          <div class="header-right">이 회사의 복지가 궁금하다면?</div>
+          <div id="bokziri" onclick="window.open('https://bokziri.com');">
+            <img id="bokziri-icon" src="../images/bokziri icon.jpeg"></img>&nbsp;&nbsp;Bokziri.com
+          </div>
         </div>
       </div>
     </div>
     <!-- 지도 -->
-    <div id="map"></div>
+    <div id="map" class="map"></div>
     <div class="search-container">
-      <script type="text/javascript" src="../js/Map.js"></script>
+      <script type="module" src="../js/injuryCode.js"></script>
+      <script type="module" src="../js/injuryPerEopjong.js"></script>
+      <script type="module" src="../js/Map.js"></script>
       <form class="search-form">
+        <div class="select-container">
         <!-- 지역  -->
         <select
           class="form-select"
@@ -135,12 +205,14 @@
           id="region"
         >
           <option selected>지역</option>
-          <option value="1">부산</option>
-          <option value="2">경남</option>
-          <option value="3">경북</option>
-          <option value="4">서울</option>
-          <option value="5">경기</option>
+          <option value="부산">부산</option>
+          <option value="경남">경남</option>
+          <option value="경북">경북</option>
+          <option value="서울">서울</option>
+          <option value="경기">경기</option>
         </select>
+      </div>
+      <div class="select-container">
         <!--근로자수-->
         <select
           class="form-select"
@@ -149,10 +221,11 @@
           id="workerCount"
         >
           <option selected>근로자수</option>
-          <option value="1">5인 이상 50인 미만</option>
-          <option value="2">100인 미만</option>
-          <option value="3">100인 이상</option>
+          <option value="1">5인 미만</option>
+          <option value="2">5인 이상</option>
+          
         </select>
+      </div>
 
         <!-- 업종 -->
         <!-- <select
@@ -181,6 +254,7 @@
       </form>
     </div>
     <script src="../js/Map.js"></script>
-    <footer>copyright staropia</footer>
+    <footer><p>&copy; 2023 Staropia. All rights reserved.</p></footer>
+  </body>
   </body>
 </html>

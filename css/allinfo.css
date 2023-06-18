@@ -1,13 +1,22 @@
-@font-face {
-    font-family: "BejuryuFont";
-    src: url("/assets/fonts/BejuryuFont.ttf");
-  }
-
 .tab {
   float: left;
   background-color: #f1f1f1;
   width: 15%;
-  height: calc(93% - 60px);
+  height: 100%;
+}
+
+header {
+  background-color: #323232;
+  padding: 8px 12px;
+}
+
+html,
+body,
+.container-fluid,
+.tab {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .tab button {
@@ -24,32 +33,71 @@
   font-size: 15px;
   font-weight: bold;
 }
-
 /* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #ddd;
 }
-
 /* Create an active/current "tab button" class */
 .tab button.active {
   background-color: #ccc;
 }
-
 /* Style the tab content */
 .tabcontent {
   float: auto;
   padding: 10px 20px;
   padding-left: 18%;
-  border: 1px solid #ccc;
-  width: 80%;
-  height: calc(93% - 80px);
+  /* border: 0px solid #ccc; */
+  width: 100%;
+  height: 100%;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/office2.jpeg");
 }
 
-table {width: 100%}
-table caption {display: none}
-table th {height: 50px; text-align: center;border-left:1px #eee solid;border-bottom:1px #eee solid;background:#f6f6f6; }
-table tr:first-child th{border-top:2px #323232 solid;}
-table td { letter-spacing: -.5px; line-height:19px; padding: 10px; text-align: center;border-left:1px #eee solid;border-bottom:1px #eee solid; background:#fff}
+.box {
+  /* background-color: rgba(242, 242, 242, 0.5); */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.content {
+  color: white;
+  padding: 20px;
+}
+
+.content h2 {
+  font-weight: 800;
+}
+
+.content p {
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+}
+table caption {
+  display: none;
+}
+table th {
+  height: 50px;
+  text-align: center;
+  border-left: 1px #eee solid;
+  border-bottom: 1px #eee solid;
+  background: #f6f6f6;
+}
+table tr:first-child th {
+  border-top: 2px #323232 solid;
+}
+table td {
+  letter-spacing: -0.5px;
+  line-height: 19px;
+  padding: 10px;
+  text-align: center;
+  border-left: 1px #eee solid;
+  border-bottom: 1px #eee solid;
+  background: #fff;
+}
 
 table td a:link {
   color: black;
@@ -65,6 +113,10 @@ table td a:hover {
   color: blue;
 }
 
+.link-button {
+  margin-bottom: 30px; /* 원하는 간격을 설정하세요 */
+}
+
 .link-button ul {
   width: 90%;
   margin: 0 auto;
@@ -73,7 +125,7 @@ table td a:hover {
 
 .link-button ul li {
   display: inline-block;
-  width: calc((100% - 40px)/4);
+  width: calc((100% - 40px) / 4);
   text-align: center;
   text-decoration: none;
   line-height: 20px;
@@ -82,18 +134,38 @@ table td a:hover {
   border-radius: 10px;
 }
 
-.link-button ul li a {color: black; font-weight: bold;}
-.link-button ul li a:link {text-decoration: none;}
+.link-button ul li a {
+  color: black;
+  font-weight: bold;
+}
+.link-button ul li a:link {
+  text-decoration: none;
+}
 
-.link-button ul li.button-01 {background-color: #F5F0BB;}
-.link-button ul li.button-01:hover {background-color: #F7FF93;}
+.link-button ul li.button-01 {
+  background-color: #f5f0bb;
+}
+.link-button ul li.button-01:hover {
+  background-color: #f7ff93;
+}
 
-.link-button ul li.button-02 {background-color: #73A9AD;}
-.link-button ul li.button-02:hover {background-color: #43919B;}
+.link-button ul li.button-02 {
+  background-color: #73a9ad;
+}
+.link-button ul li.button-02:hover {
+  background-color: #43919b;
+}
 
-.link-button ul li.button-03 {background-color: #C4DFAA;}
-.link-button ul li.button-03:hover {background-color: #90C8AC;}
+.link-button ul li.button-03 {
+  background-color: #c4dfaa;
+}
+.link-button ul li.button-03:hover {
+  background-color: #90c8ac;
+}
 
-.link-button ul li.button-04 {background-color: #C8B6E2;}
-.link-button ul li.button-04:hover {background-color: #A8A4CE;}
-
+.link-button ul li.button-04 {
+  background-color: #c8b6e2;
+}
+.link-button ul li.button-04:hover {
+  background-color: #a8a4ce;
+}
