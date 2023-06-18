@@ -1,3 +1,6 @@
+/* 처음부터 bizno에서 검색하는 코드, 속도가 많이 느려 사용하지 못함 */
+
+
 // 업종별 산재 빈도, 상병코드 map 객체를 불러온다.
 import injuryPerEopjong from './injuryPerEopjong.js';
 import injuryCode from './injuryCode.js';
