@@ -73,31 +73,11 @@ body,
   margin-top: 10px;
 }
 
-table {
-  width: 100%;
-}
-table caption {
-  display: none;
-}
-table th {
-  height: 50px;
-  text-align: center;
-  border-left: 1px #eee solid;
-  border-bottom: 1px #eee solid;
-  background: #f6f6f6;
-}
-table tr:first-child th {
-  border-top: 2px #323232 solid;
-}
-table td {
-  letter-spacing: -0.5px;
-  line-height: 19px;
-  padding: 10px;
-  text-align: center;
-  border-left: 1px #eee solid;
-  border-bottom: 1px #eee solid;
-  background: #fff;
-}
+table {width: 100%}
+table caption {display: none}
+table th {height: 50px; text-align: center;border-left:1px #eee solid;border-bottom:1px #eee solid;background:#f6f6f6; }
+table tr:first-child th{border-top:2px #323232 solid;}
+table td { letter-spacing: -.5px; line-height:19px; padding: 10px; text-align: center;border-left:1px #eee solid;border-bottom:1px #eee solid; background:#fff}
 
 table td a:link {
   color: black;
@@ -125,7 +105,7 @@ table td a:hover {
 
 .link-button ul li {
   display: inline-block;
-  width: calc((100% - 40px) / 4);
+  width: calc((100% - 40px)/4);
   text-align: center;
   text-decoration: none;
   line-height: 20px;
@@ -134,38 +114,17 @@ table td a:hover {
   border-radius: 10px;
 }
 
-.link-button ul li a {
-  color: black;
-  font-weight: bold;
-}
-.link-button ul li a:link {
-  text-decoration: none;
-}
+.link-button ul li a {color: black; font-weight: bold;}
+.link-button ul li a:link {text-decoration: none;}
 
-.link-button ul li.button-01 {
-  background-color: #f5f0bb;
-}
-.link-button ul li.button-01:hover {
-  background-color: #f7ff93;
-}
+.link-button ul li.button-01 {background-color: #F5F0BB;}
+.link-button ul li.button-01:hover {background-color: #F7FF93;}
 
-.link-button ul li.button-02 {
-  background-color: #73a9ad;
-}
-.link-button ul li.button-02:hover {
-  background-color: #43919b;
-}
+.link-button ul li.button-02 {background-color: #73A9AD;}
+.link-button ul li.button-02:hover {background-color: #43919B;}
 
-.link-button ul li.button-03 {
-  background-color: #c4dfaa;
-}
-.link-button ul li.button-03:hover {
-  background-color: #90c8ac;
-}
+.link-button ul li.button-03 {background-color: #C4DFAA;}
+.link-button ul li.button-03:hover {background-color: #90C8AC;}
 
-.link-button ul li.button-04 {
-  background-color: #c8b6e2;
-}
-.link-button ul li.button-04:hover {
-  background-color: #a8a4ce;
-}
+.link-button ul li.button-04 {background-color: #C8B6E2;}
+.link-button ul li.button-04:hover {background-color: #A8A4CE;}
