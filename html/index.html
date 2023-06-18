@@ -54,42 +54,6 @@
       </ul>
     </nav>
     </header>
-    
-    <!-- 우측 오프캔버스-->
-    <div
-      class="offcanvas offcanvas-end"
-      tabindex="-1"
-      id="offcanvas-right"
-      aria-labelledby="offcanvasLabel"
-      style="width: 40%; min-width: 400px;"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <div id="container">
-          <!-- 안전보건교육 매뉴얼 -->
-          <div class="header-right">안전보건교육 가이드</div>
-          <iframe id="anjeonGuide" src="../notes/소규모 사업장 안전보건교육 가이드.pdf"></iframe>
-          <div class="newWindowButton" onclick="window.open('../notes/소규모 사업장 안전보건교육 가이드.pdf');">
-            <img src="../images/search.png">
-            크게 보기
-          </div>
-          <br><br><br>
-          <!-- 복지리 -->
-          <div class="header-right">이 회사의 복지가 궁금하다면?</div>
-          <div id="bokziri" onclick="window.open('https://bokziri.com');">
-            <img id="bokziri-icon" src="../images/bokziri icon.jpeg"></img>&nbsp;&nbsp;Bokziri.com
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- 지도 -->
     <div id="map" class="map"></div>
     <div class="search-container">
@@ -245,7 +209,7 @@
             </ul>
           </ul><br>
           <!-- 산재예방 매뉴얼 -->
-          <div class="header-right"><hr>산재예방 매뉴얼</div>
+          <div class="header-manual"><hr>산재예방 매뉴얼</div>
           <iframe id="sanjaeManual" src="../notes/산재예방 매뉴얼 [최종].pdf"></iframe>
           <div class="newWindowButton" onclick="window.open('../notes/산재예방 매뉴얼 [최종].pdf');">
             <img src="../images/search.png">

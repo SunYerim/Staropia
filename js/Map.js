@@ -8,11 +8,11 @@ import sanjaePageNum from './sanjaePageNum.js';
 */
 
 /** 한국 전체 모습을 보여주는 bounds */
-var koreaBounds = new kakao.maps.LatLngBounds(
+const koreaBounds = new kakao.maps.LatLngBounds(
   new kakao.maps.LatLng(37.833245, 126.111684),
   new kakao.maps.LatLng(33.562060, 130.088381)
 )
-var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+const mapContainer = document.getElementById("map"), // 지도를 표시할 div
   mapOption = {
     center: new kakao.maps.LatLng(35.134832, 129.103106), // 지도의 중심좌표
     level: 5, // 지도의 기본 확대 레벨
@@ -27,7 +27,7 @@ map.setMaxLevel(13);
 /** 검색된 마커들의 배열 */
 var markers = [];
 // 장소 검색 객체
-var ps = new kakao.maps.services.Places();
+const ps = new kakao.maps.services.Places();
 // 지도 범위 객체
 var bounds = new kakao.maps.LatLngBounds();
 
@@ -76,7 +76,7 @@ function search() {
     for (var i = 0; i < places.length; i++) {
       // 지역이 일치하거나, 전역 검색이라면 마커를 생성하고 카운트를 증가시킨다.
       if (places[i].address_name.substr(0, 2) === region || region === '지역') {
-        addMarker(places[i], region, i);
+        addMarker(places[i], region);
         addCount++;
       }
     }
@@ -103,13 +103,10 @@ function removeAllLetters(str, char) {
 */
 
 /** 마커를 생성하는 함수 */
-function addMarker(place, area, i) {
+function addMarker(place, area) {
   // 사업장명, 지역으로 사업자등록번호를 조회한다.
-  var url = "https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3"
-    + "&q=" + place.place_name + "&type=json";;
-  if (area !== "지역") {
-    url += "&area=" + area;
-  }
+  const url = "https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3"
+    + "&q=" + place.place_name + "&type=json";
 
   fetch(url)
     .then((res) => res.json())
@@ -117,6 +114,7 @@ function addMarker(place, area, i) {
       // 현재는 무료 API를 사용중이며, 무료 사용분이 끝나면 콘솔창에 출력된다.
       if (resJson.readyState === 3) {
         console.log("bizno API 일일 한도 초과");
+        return;
       }
       // 검색된 사업자등록번호가 없다면 종료한다.
       if (resJson.totalCount === 0) {
@@ -137,45 +135,30 @@ function addMarker(place, area, i) {
       queryParams += "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
       queryParams += "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10");
       queryParams += "&" + encodeURIComponent("v_saeopjaDrno") + "=" + encodeURIComponent(saeopjangNo);
-      // 1: 산재, 2: 고용
-      var opa1 = "&" + encodeURIComponent("opaBoheomFg") + "=" + encodeURIComponent("1");
 
-      // 사업자등록번호를 이용해 산재 데이터를 요청한다.
-      xhr.open("GET", url + queryParams + opa1);
+      // 사업자등록번호를 이용해 고용, 산재 데이터를 요청한다.
+      xhr.open("GET", url + queryParams);
       xhr.onreadystatechange = function () {
         if (this.readyState == 4) {
-          // 산재 데이터를 받아온다.
-          var sjData = xhr.responseXML;
+          // 고용, 산재 데이터를 받아온다.
+          var data = xhr.responseXML;
+          console.log(data);
 
-          // 고용 데이터를 받아올 xhr을 생성한다.
-          var xhr2 = new XMLHttpRequest();
-          var opa2 = "&" + encodeURIComponent("opaBoheomFg") + "=" + encodeURIComponent("2");
-          // 산재 데이터가 존재한다면 고용 데이터도 받아온다.
-          xhr2.open("GET", url + queryParams + opa2);
-          xhr2.onreadystatechange = function () {
-            if (this.readyState == 4) {
-              // 정보가 있는 기업만 마커를 생성한다.
-              const marker = new kakao.maps.Marker({
-                map: map,
-                position: new kakao.maps.LatLng(place.y, place.x),
-              });
+          // 정보가 있는 기업만 마커를 생성한다.
+          const marker = new kakao.maps.Marker({
+            map: map,
+            position: new kakao.maps.LatLng(place.y, place.x),
+          });
 
-              markers.push(marker);
+          markers.push(marker);
 
-              // 고용데이터를 저장해둔다.
-              var gyData = xhr2.responseXML;
+          // 마커 이벤트를 등록한다.
+          kakao.maps.event.addListener(marker, "mouseover", showPreviewWindow(place, data));
+          kakao.maps.event.addListener(marker, "mouseout", hidePreviewWindow());
+          kakao.maps.event.addListener(marker, "click", showOffcanvas(data));
 
-              // 마커 이벤트를 등록한다.
-              kakao.maps.event.addListener(marker, "mouseover", showPreviewWindow(place, gyData));
-              kakao.maps.event.addListener(marker, "mouseout", hidePreviewWindow());
-              kakao.maps.event.addListener(marker, "click", showOffcanvas(gyData, sjData));
-
-              // 마커가 추가될 때마다 보이는 범위를 갱신한다.
-              map.setBounds(bounds);
-            }
-          };
-
-          xhr2.send("");
+          // 마커가 추가될 때마다 보이는 범위를 갱신한다.
+          map.setBounds(bounds);
         }
       };
 
@@ -210,7 +193,7 @@ function clearMarkers() {
 */
 
 /** 마커 위에 표시할 미리보기창, 유일 객체 */
-var previewWindow = new kakao.maps.CustomOverlay({
+const previewWindow = new kakao.maps.CustomOverlay({
   position: new kakao.maps.LatLng(35.134832, 129.103106),
   clickable: true,
   // 상대적 x, y 위치, 기본 : 0.5
@@ -224,10 +207,10 @@ function showPreviewWindow(place, data) {
     // 미리보기창 위치를 변경한다
     previewWindow.setPosition(new kakao.maps.LatLng(place.y, place.x));
     // 사업장명을 받아와, '주식회사'를 제거한다.
-    var companyName = data.getElementsByTagName("saeopjangNm")[0].childNodes[0].textContent;
+    var companyName = data.getElementsByTagName("saeopjangNm")[0].textContent;
     companyName = removeAllLetters(companyName, "주식회사");
     // 고용업종명을 받아온다.
-    var eopjongName = data.getElementsByTagName("gyEopjongNm")[0].childNodes[0].textContent;
+    var eopjongName = data.getElementsByTagName("gyEopjongNm")[0].textContent;
 
     // 변경될 내용
     var content =
@@ -259,35 +242,37 @@ function hidePreviewWindow() {
 */
 
 // html 태그들을 전역 변수로 캐싱해둔다.
-var offcanvasElement = document.getElementById("offcanvas");
-var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
-var companyNameTag = document.getElementById("name")
-var addressTag = document.getElementById("address");
-var companyNumTag = document.getElementById("companyNumber");
-// 산재 정보 표시 태그
-var injuryList = document.getElementById("injuryList")
-var injuryTags = document.getElementsByClassName('injuryTag');
-var injuryContentTags = document.getElementsByClassName('content-sj');
+const offcanvasElement = document.getElementById("offcanvas");
+const offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+const companyNameTag = document.getElementById("name")
+const addressTag = document.getElementById("address");
+const companyNumTag = document.getElementById("companyNumber");
 // 고용업종명 ~ 상시인원 태그를 배열로 캐싱
-var contents = document.getElementsByClassName("content");
+const contents = document.getElementsByClassName("content");
+// 산재 정보 표시 태그
+const injuryList = document.getElementById("injuryList")
+const injuryTags = document.getElementsByClassName('injuryTag');
+const injuryContentTags = document.getElementsByClassName('content-sj');
+// 산재예방 매뉴얼 태그
+const sanjaeFrame = document.getElementById("sanjaeManual");
 
 /** 오프캔버스 내용을 변경하고 표시하는 함수 */
-function showOffcanvas(gyData, sjData) {
+function showOffcanvas(data) {
   return function () {
     // 회사 정보들을 분리한다.
     // 고용 데이터
-    var companyName = gyData.getElementsByTagName("saeopjangNm")[0].childNodes[0].textContent;
+    var companyName = data.getElementsByTagName("saeopjangNm")[0].textContent;
     companyName = removeAllLetters(companyName, "주식회사");
-    var address = gyData.getElementsByTagName("addr")[0].childNodes[0].textContent;
-    var peopleCount = gyData.getElementsByTagName("sangsiInwonCnt")[0].childNodes[0].textContent;
-    var companyNumber = gyData.getElementsByTagName("saeopjaDrno")[0].childNodes[0].textContent;
-    var gyEopjongName = gyData.getElementsByTagName("gyEopjongNm")[0].childNodes[0].textContent;
-    var gyEopjongCode = gyData.getElementsByTagName("gyEopjongCd")[0].childNodes[0].textContent;
-    var gySeongripDate = gyData.getElementsByTagName("seongripDt")[0].childNodes[0].textContent;
+    var address = data.getElementsByTagName("addr")[0].textContent;
+    var peopleCount = data.getElementsByTagName("sangsiInwonCnt")[0].textContent;
+    var companyNumber = data.getElementsByTagName("saeopjaDrno")[0].textContent;
+    var gyEopjongName = data.getElementsByTagName("gyEopjongNm")[0].textContent;
+    var gyEopjongCode = data.getElementsByTagName("gyEopjongCd")[0].textContent;
+    var gySeongripDate = data.getElementsByTagName("seongripDt")[0].textContent;
     // 산재 데이터
-    var sjEopjongName = sjData.getElementsByTagName("sjEopjongNm")[0].childNodes[0].textContent;
-    var sjEopjongCode = sjData.getElementsByTagName("sjEopjongCd")[0].childNodes[0].textContent;
-    var sjSeongripDate = sjData.getElementsByTagName("seongripDt")[0].childNodes[0].textContent;
+    var sjEopjongName = data.getElementsByTagName("sjEopjongNm")[0].textContent;
+    var sjEopjongCode = data.getElementsByTagName("sjEopjongCd")[0].textContent;
+    var sjSeongripDate = data.getElementsByTagName("seongripDt")[0].textContent;
 
     // 오프캔버스 열기
     offcanvas.show();
@@ -339,7 +324,6 @@ function showOffcanvas(gyData, sjData) {
     }
     // 고용코드의 첫 3자리로 매뉴얼 페이지 번호 검색, 없을 시 첫 페이지가 보인다.
     var pageNum = sanjaePageNum.get(Math.floor(gyEopjongCode / 100));
-    var sanjaeFrame = document.getElementById("sanjaeManual");
     // 페이지 변환을 위해 링크를 지운 뒤 100ms 후 생성
     sanjaeFrame.src = "";
     setTimeout(function () {
