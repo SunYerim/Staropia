@@ -1,17 +1,17 @@
 // 업종별 산재 빈도, 상병코드 map 객체를 불러옴
-import injuryPerEopjong from './injuryPerEopjong.js';
-import injuryCode from './injuryCode.js';
-import sanjaePageNum from './sanjaePageNum.js';
+import injuryPerEopjong from "./injuryPerEopjong.js";
+import injuryCode from "./injuryCode.js";
+import sanjaePageNum from "./sanjaePageNum.js";
 
 /*
-* 지도 생성
-*/
+ * 지도 생성
+ */
 
 /** 한국 전체 모습을 보여주는 bounds */
 const koreaBounds = new kakao.maps.LatLngBounds(
   new kakao.maps.LatLng(37.833245, 126.111684),
-  new kakao.maps.LatLng(33.562060, 130.088381)
-)
+  new kakao.maps.LatLng(33.56206, 130.088381)
+);
 const mapContainer = document.getElementById("map"), // 지도를 표시할 div
   mapOption = {
     center: new kakao.maps.LatLng(35.134832, 129.103106), // 지도의 중심좌표
@@ -38,14 +38,14 @@ document.querySelector(".search-form").addEventListener("submit", function (e) {
 });
 
 /*
-* 검색 기능
-*/
+ * 검색 기능
+ */
 
 /** 키워드와 필터로 검색하는 함수 */
 function search() {
   // 선택된 값들을 가져온다.
   var region = document.querySelector("#region").value;
-  // var workerCount = doucument.querySelector("#workerCount").value;
+
   var keyword = document.getElementById("keyword").value;
   // 키워드로 카카오 맵 API에 검색한다.
   ps.keywordSearch(keyword, placesSearchCB);
@@ -75,7 +75,7 @@ function search() {
     // 검색된 모든 장소에 대해 지역을 검사하고, 일치하면 마커를 추가한다.
     for (var i = 0; i < places.length; i++) {
       // 지역이 일치하거나, 전역 검색이라면 마커를 생성하고 카운트를 증가시킨다.
-      if (places[i].address_name.substr(0, 2) === region || region === '지역') {
+      if (places[i].address_name.substr(0, 2) === region || region === "지역") {
         addMarker(places[i], region);
         addCount++;
       }
@@ -99,14 +99,17 @@ function removeAllLetters(str, char) {
 }
 
 /*
-* 마커 생성
-*/
+ * 마커 생성
+ */
 
 /** 마커를 생성하는 함수 */
 function addMarker(place, area) {
   // 사업장명, 지역으로 사업자등록번호를 조회한다.
-  const url = "https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3"
-    + "&q=" + place.place_name + "&type=json";
+  const url =
+    "https://bizno.net/api/fapi?key=dmVkZWxsYW4xNTE5QGdtYWlsLmNvbSAg&gb=3" +
+    "&q=" +
+    place.place_name +
+    "&type=json";
 
   fetch(url)
     .then((res) => res.json())
@@ -130,11 +133,22 @@ function addMarker(place, area) {
 
       // 사업자등록번호를 사용해 해당 기업 정보를 xml로 받아온다.
       var xhr = new XMLHttpRequest();
-      var url = "http://apis.data.go.kr/B490001/gySjbPstateInfoService/getGySjBoheomBsshItem";
-      var queryParams = "?" + encodeURIComponent("serviceKey") + "=" + "JO7Z2MdHanL%2BIYer3fTrXt8YbY4SCcOgXXDCJI4WU8wn%2BUFo08xrBdI29hH1akZqm6GbXFTH7UAabBwCEQh8ew%3D%3D";
-      queryParams += "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
-      queryParams += "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10");
-      queryParams += "&" + encodeURIComponent("v_saeopjaDrno") + "=" + encodeURIComponent(saeopjangNo);
+      var url =
+        "http://apis.data.go.kr/B490001/gySjbPstateInfoService/getGySjBoheomBsshItem";
+      var queryParams =
+        "?" +
+        encodeURIComponent("serviceKey") +
+        "=" +
+        "JO7Z2MdHanL%2BIYer3fTrXt8YbY4SCcOgXXDCJI4WU8wn%2BUFo08xrBdI29hH1akZqm6GbXFTH7UAabBwCEQh8ew%3D%3D";
+      queryParams +=
+        "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
+      queryParams +=
+        "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10");
+      queryParams +=
+        "&" +
+        encodeURIComponent("v_saeopjaDrno") +
+        "=" +
+        encodeURIComponent(saeopjangNo);
 
       // 사업자등록번호를 이용해 고용, 산재 데이터를 요청한다.
       xhr.open("GET", url + queryParams);
@@ -153,7 +167,11 @@ function addMarker(place, area) {
           markers.push(marker);
 
           // 마커 이벤트를 등록한다.
-          kakao.maps.event.addListener(marker, "mouseover", showPreviewWindow(place, data));
+          kakao.maps.event.addListener(
+            marker,
+            "mouseover",
+            showPreviewWindow(place, data)
+          );
           kakao.maps.event.addListener(marker, "mouseout", hidePreviewWindow());
           kakao.maps.event.addListener(marker, "click", showOffcanvas(data));
 
@@ -189,8 +207,8 @@ function clearMarkers() {
 }
 
 /*
-* 미리보기창 생성
-*/
+ * 미리보기창 생성
+ */
 
 /** 마커 위에 표시할 미리보기창, 유일 객체 */
 const previewWindow = new kakao.maps.CustomOverlay({
@@ -238,21 +256,21 @@ function hidePreviewWindow() {
 }
 
 /*
-* 오프캔버스 생성
-*/
+ * 오프캔버스 생성
+ */
 
 // html 태그들을 전역 변수로 캐싱해둔다.
 const offcanvasElement = document.getElementById("offcanvas");
 const offcanvas = new bootstrap.Offcanvas(offcanvasElement);
-const companyNameTag = document.getElementById("name")
+const companyNameTag = document.getElementById("name");
 const addressTag = document.getElementById("address");
 const companyNumTag = document.getElementById("companyNumber");
 // 고용업종명 ~ 상시인원 태그를 배열로 캐싱
 const contents = document.getElementsByClassName("content");
 // 산재 정보 표시 태그
-const injuryList = document.getElementById("injuryList")
-const injuryTags = document.getElementsByClassName('injuryTag');
-const injuryContentTags = document.getElementsByClassName('content-sj');
+const injuryList = document.getElementById("injuryList");
+const injuryTags = document.getElementsByClassName("injuryTag");
+const injuryContentTags = document.getElementsByClassName("content-sj");
 // 산재예방 매뉴얼 태그
 const sanjaeFrame = document.getElementById("sanjaeManual");
 
@@ -264,7 +282,8 @@ function showOffcanvas(data) {
     var companyName = data.getElementsByTagName("saeopjangNm")[0].textContent;
     companyName = removeAllLetters(companyName, "주식회사");
     var address = data.getElementsByTagName("addr")[0].textContent;
-    var peopleCount = data.getElementsByTagName("sangsiInwonCnt")[0].textContent;
+    var peopleCount =
+      data.getElementsByTagName("sangsiInwonCnt")[0].textContent;
     var companyNumber = data.getElementsByTagName("saeopjaDrno")[0].textContent;
     var gyEopjongName = data.getElementsByTagName("gyEopjongNm")[0].textContent;
     var gyEopjongCode = data.getElementsByTagName("gyEopjongCd")[0].textContent;
@@ -285,16 +304,22 @@ function showOffcanvas(data) {
     contents[0].innerHTML = gyEopjongName;
     contents[1].innerHTML = gyEopjongCode;
     contents[2].innerHTML =
-      gySeongripDate.substr(0, 4) + "년 " +
-      gySeongripDate.substr(4, 2) + "월 " +
-      gySeongripDate.substr(6, 2) + "일";
+      gySeongripDate.substr(0, 4) +
+      "년 " +
+      gySeongripDate.substr(4, 2) +
+      "월 " +
+      gySeongripDate.substr(6, 2) +
+      "일";
     contents[3].innerHTML = peopleCount + "명";
     contents[4].innerHTML = sjEopjongName;
     contents[5].innerHTML = sjEopjongCode;
     contents[6].innerHTML =
-      sjSeongripDate.substr(0, 4) + "년 " +
-      sjSeongripDate.substr(4, 2) + "월 " +
-      sjSeongripDate.substr(6, 2) + "일";
+      sjSeongripDate.substr(0, 4) +
+      "년 " +
+      sjSeongripDate.substr(4, 2) +
+      "월 " +
+      sjSeongripDate.substr(6, 2) +
+      "일";
 
     // 산재 정보를 받아온다.
     var injuryData = injuryPerEopjong.get(sjEopjongName);
@@ -302,7 +327,7 @@ function showOffcanvas(data) {
     let i = 0;
     // 데이터가 있을 때만 연산
     if (injuryData !== undefined) {
-      injuryList.style.display = '';
+      injuryList.style.display = "";
       // 모든 키 값을 순서대로 조회
       for (const key of injuryData.keys()) {
         if (i === injuryData.size) {
@@ -310,17 +335,17 @@ function showOffcanvas(data) {
         }
         // 내용을 변경하고 표시
         injuryContentTags[i].innerHTML = injuryCode.get(key);
-        injuryTags[i].style.display = '';
+        injuryTags[i].style.display = "";
         i++;
       }
     }
     // 데이터가 없으면 리스트 전체를 숨김
     else {
-      injuryList.style.display = 'none';
+      injuryList.style.display = "none";
     }
     // 병명이 작성되지 않은 태그들은 숨긴다
     for (; i < 3; i++) {
-      injuryTags[i].style.display = 'none';
+      injuryTags[i].style.display = "none";
     }
     // 고용코드의 첫 3자리로 매뉴얼 페이지 번호 검색, 없을 시 첫 페이지가 보인다.
     var pageNum = sanjaePageNum.get(Math.floor(gyEopjongCode / 100));
